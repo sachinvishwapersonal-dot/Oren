@@ -29,6 +29,15 @@ npm run lint
 npm run build
 ```
 
+## Netlify deployment
+
+The site is configured for zero-cold-start static export on Netlify (`output: "export"` in `next.config.ts` and `netlify.toml` publishing `out/`):
+
+- **Build command:** `npm run build`
+- **Publish directory:** `out`
+- **Forms:** Contact and newsletter forms include `data-netlify="true"` for automatic Netlify Forms collection.
+- **Headers & caching:** Security headers, immutable `/_next/static/*` caching, and Markdown content-type for `/agents.md` are configured in `netlify.toml`.
+
 ## Directory structure
 
 ```text

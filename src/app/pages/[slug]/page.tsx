@@ -5,6 +5,8 @@ import { policyContent, type PolicySlug } from "@/data/site";
 
 type PageProps = { params: Promise<{ slug: string }> };
 
+export const dynamicParams = false;
+
 export function generateStaticParams() {
   return Object.keys(policyContent).map((slug) => ({ slug }));
 }

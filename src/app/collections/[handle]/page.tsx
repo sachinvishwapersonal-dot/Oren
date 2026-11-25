@@ -12,6 +12,8 @@ import { siteConfig } from "@/data/site";
 
 type PageProps = { params: Promise<{ handle: string }> };
 
+export const dynamicParams = false;
+
 export function generateStaticParams() {
   return collections.map((collection) => ({ handle: collection.handle }));
 }

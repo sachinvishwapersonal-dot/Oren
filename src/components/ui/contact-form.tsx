@@ -4,14 +4,29 @@ import { useState, type FormEvent } from "react";
 import { CheckIcon } from "@/components/ui/icons";
 
 export function ContactForm() {
-  const [status, setStatus] = useState<"idle" | "error" | "success">("idle");
+  const [status, setStatus] = useState<"idle" | "error" | "submitting" | "success">("idle");
 
-  function submit(event: FormEvent<HTMLFormElement>) {
+  async function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const form = event.currentTarget;
     if (!form.reportValidity()) {
       setStatus("error");
       return;
+    }
+    setStatus("submitting");
+    try {
+      const data = new FormData(form);
+      const encoded = new URLSearchParams();
+      data.forEach((value, key) => {
+        if (typeof value === "string") encoded.append(key, value);
+      });
+      await fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: encoded.toString(),
+      });
+    } catch {
+      // Static local preview fallback
     }
     setStatus("success");
     form.reset();
@@ -29,7 +44,20 @@ export function ContactForm() {
   }
 
   return (
-    <form onSubmit={submit} className="rounded-[6px] border border-[var(--color-line)] bg-white p-6 md:p-8">
+    <form
+      name="contact"
+      method="POST"
+      data-netlify="true"
+      netlify-honeypot="bot-field"
+      onSubmit={submit}
+      className="rounded-[6px] border border-[var(--color-line)] bg-white p-6 md:p-8"
+    >
+      <input type="hidden" name="form-name" value="contact" />
+      <p className="hidden">
+        <label>
+          Don&apos;t fill this out: <input name="bot-field" />
+        </label>
+      </p>
       <h2 className="text-2xl font-semibold tracking-[-0.035em]">Send a message</h2>
       <div className="mt-6 grid gap-5 sm:grid-cols-2">
         <div>
@@ -52,7 +80,9 @@ export function ContactForm() {
         <textarea id="contact-message" name="message" required rows={5} className="mt-2 w-full rounded-[3px] border border-[var(--color-line)] bg-[var(--color-paper)] p-4 text-sm outline-none focus:border-[var(--color-ink)]" />
       </div>
       {status === "error" ? <p className="mt-4 text-sm text-[var(--color-signal)]">Complete the required fields and try again.</p> : null}
-      <button type="submit" className="button-shape mt-6 h-12 w-full bg-[var(--color-signal)] text-xs font-bold uppercase tracking-[0.1em] text-white transition-colors hover:bg-[var(--color-ink)]">Send message</button>
+      <button type="submit" disabled={status === "submitting"} className="button-shape mt-6 h-12 w-full bg-[var(--color-signal)] text-xs font-bold uppercase tracking-[0.1em] text-white transition-colors hover:bg-[var(--color-ink)] disabled:opacity-60">
+        {status === "submitting" ? "Sending..." : "Send message"}
+      </button>
     </form>
   );
 }

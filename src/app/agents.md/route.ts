@@ -1,6 +1,8 @@
 import { formatPrice, getPerServingPrice, products } from "@/data/products";
 import { siteConfig } from "@/data/site";
 
+export const dynamic = "force-static";
+
 export function GET() {
   const productLines = products
     .map(

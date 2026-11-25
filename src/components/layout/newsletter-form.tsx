@@ -5,14 +5,29 @@ import { CheckIcon } from "@/components/ui/icons";
 
 export function NewsletterForm({ compact = false }: { compact?: boolean }) {
   const [email, setEmail] = useState("");
-  const [status, setStatus] = useState<"idle" | "error" | "success">("idle");
+  const [status, setStatus] = useState<"idle" | "error" | "submitting" | "success">("idle");
 
-  function submit(event: FormEvent<HTMLFormElement>) {
+  async function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    const valid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim());
+    const trimmed = email.trim();
+    const valid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(trimmed);
     if (!valid) {
       setStatus("error");
       return;
+    }
+    setStatus("submitting");
+    try {
+      const encoded = new URLSearchParams({
+        "form-name": "newsletter",
+        email: trimmed,
+      });
+      await fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: encoded.toString(),
+      });
+    } catch {
+      // Static local preview fallback
     }
     setStatus("success");
   }
@@ -30,13 +45,28 @@ export function NewsletterForm({ compact = false }: { compact?: boolean }) {
   }
 
   return (
-    <form onSubmit={submit} noValidate className={compact ? "" : "mt-6"}>
+    <form
+      name="newsletter"
+      method="POST"
+      data-netlify="true"
+      netlify-honeypot="bot-field"
+      onSubmit={submit}
+      noValidate
+      className={compact ? "" : "mt-6"}
+    >
+      <input type="hidden" name="form-name" value="newsletter" />
+      <p className="hidden">
+        <label>
+          Don&apos;t fill this out: <input name="bot-field" />
+        </label>
+      </p>
       <label htmlFor={compact ? "footer-email-compact" : "footer-email"} className="sr-only">
         Email address
       </label>
       <div className="flex border-b border-white/35 pb-2 focus-within:border-white">
         <input
           id={compact ? "footer-email-compact" : "footer-email"}
+          name="email"
           type="email"
           value={email}
           onChange={(event) => {
@@ -49,8 +79,12 @@ export function NewsletterForm({ compact = false }: { compact?: boolean }) {
           aria-describedby={status === "error" ? "newsletter-error" : undefined}
           className="min-w-0 flex-1 bg-transparent py-2 text-sm text-white outline-none placeholder:text-white/60"
         />
-        <button type="submit" className="px-2 text-sm font-semibold text-white hover:text-[var(--color-silver)]">
-          Join
+        <button
+          type="submit"
+          disabled={status === "submitting"}
+          className="px-2 text-sm font-semibold text-white hover:text-[var(--color-silver)] disabled:opacity-60"
+        >
+          {status === "submitting" ? "…" : "Join"}
         </button>
       </div>
       {status === "error" ? (

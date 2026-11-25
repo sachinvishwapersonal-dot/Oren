@@ -15,8 +15,11 @@ const inter = Inter({
   variable: "--font-inter",
 });
 
+const resolvedSiteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL || process.env.URL || siteConfig.url;
+
 export const metadata: Metadata = {
-  metadataBase: new URL(siteConfig.url),
+  metadataBase: new URL(resolvedSiteUrl),
   title: {
     default: "Oren | Hydration for heat. Creatine for strength.",
     template: "%s | Oren",

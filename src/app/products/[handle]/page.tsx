@@ -21,6 +21,8 @@ import { siteConfig } from "@/data/site";
 
 type PageProps = { params: Promise<{ handle: string }> };
 
+export const dynamicParams = false;
+
 export function generateStaticParams() {
   return products.map((product) => ({ handle: product.handle }));
 }
