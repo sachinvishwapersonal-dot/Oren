@@ -22,8 +22,7 @@ export function ScienceSection() {
             <article key={card.number} className="flex min-h-[310px] flex-col justify-between rounded-[3px] bg-[var(--color-mist)] p-5">
               <div className={`flex aspect-[4/3] items-center justify-center rounded-[3px] ${toneClasses[card.tone as keyof typeof toneClasses]}`}>
                 <div className="text-center text-[var(--color-ink)]">
-                  <p className="font-mono text-[10px] tracking-[0.14em] opacity-80">{card.number}</p>
-                  <p className="mt-4 text-4xl font-semibold tracking-[-0.06em]">{card.metric}</p>
+                  <p className="text-4xl font-semibold tracking-[-0.06em]">{card.metric}</p>
                   <p className="mt-2 text-[11px] opacity-75">{card.label}</p>
                 </div>
               </div>

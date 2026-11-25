@@ -9,7 +9,7 @@ import { ReelsSection } from "@/components/home/reels-section";
 import { StickyProductBar } from "@/components/product/sticky-product-bar";
 import { TrustStrip } from "@/components/home/trust-strip";
 import { JsonLd } from "@/components/ui/json-ld";
-import { Badge, ButtonLink, Container, Eyebrow, SectionHeading } from "@/components/ui/primitives";
+import { Badge, ButtonLink, Container, SectionHeading } from "@/components/ui/primitives";
 import { ArrowIcon, CheckIcon, PlayIcon } from "@/components/ui/icons";
 import {
   formatPrice,
@@ -132,11 +132,7 @@ export default async function ProductPage({ params }: PageProps) {
             <ProductGallery product={product} />
 
             <div>
-              <div className="flex flex-wrap items-center gap-2">
-                <Badge tone="signal">{product.productType}</Badge>
-                {product.badge ? <Badge>{product.badge}</Badge> : null}
-              </div>
-              <h1 className="mt-5 text-balance text-5xl font-extrabold leading-[0.98] tracking-[-0.06em] md:text-6xl">
+              <h1 className="text-balance text-5xl font-extrabold leading-[0.98] tracking-[-0.06em] md:text-6xl">
                 {product.title}
               </h1>
               <p className="mt-4 text-lg text-[var(--color-graphite)]">
@@ -182,8 +178,7 @@ export default async function ProductPage({ params }: PageProps) {
         <Container>
           <div className="grid gap-10 lg:grid-cols-[1fr_0.9fr] lg:items-center lg:gap-20">
             <div>
-              <Eyebrow light>Honest use</Eyebrow>
-              <h2 className="mt-5 text-balance text-4xl font-semibold leading-[1.03] tracking-[-0.055em] md:text-6xl">
+              <h2 className="text-balance text-4xl font-semibold leading-[1.03] tracking-[-0.055em] md:text-6xl">
                 When to use it—and when you don&apos;t need it.
               </h2>
               <p className="mt-6 max-w-xl text-base leading-7 text-white/75">
@@ -258,7 +253,6 @@ export default async function ProductPage({ params }: PageProps) {
         <Container>
           <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:gap-20">
             <SectionHeading
-              eyebrow="Product details"
               title="What is inside."
               copy="Exact active ingredients, elemental doses, serving weight and pre-launch regulatory scope."
             />
@@ -343,7 +337,7 @@ export default async function ProductPage({ params }: PageProps) {
 
       <section className="bg-[var(--color-paper)] py-20 md:py-28">
         <Container>
-          <SectionHeading eyebrow="The range" title="The full range." />
+          <SectionHeading title="The full range." />
           <div
             className="mt-10 overflow-x-auto rounded-[6px] border border-[var(--color-line)] bg-white"
             role="region"
@@ -392,7 +386,7 @@ export default async function ProductPage({ params }: PageProps) {
       <section className="bg-[var(--color-mist)] py-20 md:py-28">
         <Container>
           <div className="flex items-end justify-between gap-6">
-            <SectionHeading eyebrow="Complete the routine" title="Pairs well with." />
+            <SectionHeading title="Pairs well with." />
             <ButtonLink href="/collections/all-products" variant="outline">
               Shop all
             </ButtonLink>

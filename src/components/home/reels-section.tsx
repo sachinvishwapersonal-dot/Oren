@@ -37,10 +37,7 @@ function ReelCard({ reel }: { reel: ProductReel }) {
 
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#0F1E20]/85 via-transparent to-[#0F1E20]/30" />
 
-      <div className="absolute inset-x-3.5 top-3.5 flex items-center justify-between gap-2">
-        <span className="rounded-full bg-[#0F1E20]/75 px-3 py-1 font-mono text-[10px] font-semibold tracking-[0.08em] text-white backdrop-blur-sm">
-          {reel.tag}
-        </span>
+      <div className="absolute inset-x-3.5 top-3.5 flex items-center justify-end gap-2">
         <button
           type="button"
           onClick={togglePlay}
@@ -56,17 +53,14 @@ function ReelCard({ reel }: { reel: ProductReel }) {
       </div>
 
       <div className="absolute inset-x-4 bottom-4 text-white">
-        <p className="font-mono text-[10px] tracking-[0.12em] text-white/70">
-          REEL · {reel.duration}
-        </p>
-        <h3 className="mt-1 text-base font-semibold leading-snug tracking-[-0.02em]">
+        <h3 className="text-base font-semibold leading-snug tracking-[-0.02em]">
           {reel.title}
         </h3>
         <Link
           href={`/products/${reel.productHandle}`}
           className="mt-3 inline-flex items-center gap-1.5 rounded-[3px] bg-[var(--color-signal)] px-3 py-1.5 font-mono text-[10px] font-bold uppercase tracking-[0.1em] text-white transition-colors hover:bg-white hover:text-[var(--color-ink)]"
         >
-          View product →
+          View product
         </Link>
       </div>
     </article>

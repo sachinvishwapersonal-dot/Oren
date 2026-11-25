@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { Container, Eyebrow } from "@/components/ui/primitives";
+import { Container } from "@/components/ui/primitives";
 import { policyContent, type PolicySlug } from "@/data/site";
 
 type PageProps = { params: Promise<{ slug: string }> };
@@ -32,8 +32,7 @@ export default async function PolicyPage({ params }: PageProps) {
       <section className="bg-[var(--color-paper)] py-16 md:py-24">
         <Container>
           <div className="max-w-3xl">
-            <Eyebrow>Legal</Eyebrow>
-            <h1 className="mt-5 text-balance text-5xl font-semibold leading-[0.98] tracking-[-0.06em] md:text-6xl">{policy.title}</h1>
+            <h1 className="text-balance text-5xl font-semibold leading-[0.98] tracking-[-0.06em] md:text-6xl">{policy.title}</h1>
             <p className="mt-6 text-base leading-7 text-[var(--color-graphite)]">{policy.intro}</p>
             <div className="mt-12 border-t border-[var(--color-line)]">
               {policy.sections.map((section) => (

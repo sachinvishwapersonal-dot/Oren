@@ -286,10 +286,9 @@ export default function HomePage() {
               ["Compound vs elemental math", "Brands often show compound weight instead of the actual elemental dose inside each serving."],
               ["Promises bigger than science", "'Instant recovery' and 'no more cramps' overstate what ingredient evidence supports."],
               ["Discount pricing games", "Inflated MRPs with permanent '50% off' banners make a fair daily price hard to compare."],
-            ].map(([title, copy], index) => (
+            ].map(([title, copy]) => (
               <article key={title} className="bg-[var(--color-paper)] p-6 md:p-8">
-                <p className="font-mono text-[10px] tracking-[0.14em] text-[var(--color-signal)]">0{index + 1}</p>
-                <h3 className="mt-8 text-xl font-semibold tracking-[-0.03em]">{title}</h3>
+                <h3 className="text-xl font-semibold tracking-[-0.03em]">{title}</h3>
                 <p className="mt-4 text-sm leading-6 text-[var(--color-graphite)]">{copy}</p>
               </article>
             ))}

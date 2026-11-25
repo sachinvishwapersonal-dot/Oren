@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Suspense } from "react";
 import { SearchResultsClient } from "@/components/product/search-results";
-import { Container, Eyebrow } from "@/components/ui/primitives";
+import { Container } from "@/components/ui/primitives";
 
 export const metadata: Metadata = {
   title: "Search",
@@ -34,8 +34,7 @@ export default function SearchPage() {
     >
       <section className="py-10 md:py-16">
         <Container>
-          <Eyebrow>Find your formula</Eyebrow>
-          <h1 className="mt-4 text-5xl font-semibold tracking-[-0.06em] md:text-6xl">
+          <h1 className="text-5xl font-semibold tracking-[-0.06em] md:text-6xl">
             Search.
           </h1>
           <Suspense fallback={<SearchSkeleton />}>
