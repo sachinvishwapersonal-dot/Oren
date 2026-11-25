@@ -18,10 +18,10 @@ export function HeroShowcase() {
       <Container className="relative z-10">
         <div className="max-w-3xl">
           <h1 className="hero-heading text-balance text-5xl font-extrabold uppercase leading-[0.94] tracking-[-0.065em] md:text-7xl lg:text-8xl">
-            Hydration for heat. Creatine for strength.
+            Recovery you can check.
           </h1>
           <p className="mt-7 max-w-xl text-pretty text-base leading-7 text-white/80 md:text-lg md:leading-8">
-            Oren Air for hot sessions and outdoor days. Simply Creatine for daily strength and recovery. Zero sugar, 120 mg magnesium and 5 g creatine per sachet.
+            What is inside in plain elemental numbers, when to use it—and when water is enough—at one fair price per serving.
           </p>
           <div className="mt-9 flex flex-wrap gap-3">
             <ButtonLink href="/collections/all-products" variant="secondary">

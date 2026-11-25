@@ -1,6 +1,6 @@
 # Oren Storefront
 
-Next.js storefront for **Oren** (`Oren Air` and `Simply Creatine`) built with the **Silver Garnet** design system.
+Next.js storefront for **Oren** (`Oren Hydrate` and `Oren Creatine`) built with the **Silver Garnet** design system.
 
 See [`docs/architecture-map.md`](docs/architecture-map.md) for the route, template, and component structure and [`docs/brand-tokens.md`](docs/brand-tokens.md) for the Silver Garnet color palette and Inter typography.
 
@@ -55,7 +55,7 @@ oren-storefront/
 │   ├── globals.css                      Silver Garnet tokens & utilities
 │   ├── icon.svg                         Favicon
 │   ├── collections/[handle]/page.tsx    Collection pages (all-products, hydration-series, creatine)
-│   ├── products/[handle]/page.tsx       Product detail pages (oren-air, simply-creatine)
+│   ├── products/[handle]/page.tsx       Product detail pages (oren-hydrate, oren-creatine)
 │   ├── pages/
 │   │   ├── about-us/page.tsx            About Oren
 │   │   ├── contact/page.tsx             Contact page

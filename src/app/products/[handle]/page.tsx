@@ -150,7 +150,7 @@ export default async function ProductPage({ params }: PageProps) {
                   </p>
                 ) : null}
                 <span className="font-mono text-xs text-[var(--color-graphite)]">
-                  ({formatPrice(perServing)} / sachet · incl. GST)
+                  ({formatPrice(perServing)} / sachet · one honest price)
                 </span>
               </div>
               <p className="mt-6 max-w-xl text-sm leading-6 text-[var(--color-graphite)] md:text-base md:leading-7">
@@ -182,13 +182,21 @@ export default async function ProductPage({ params }: PageProps) {
         <Container>
           <div className="grid gap-10 lg:grid-cols-[1fr_0.9fr] lg:items-center lg:gap-20">
             <div>
-              <Eyebrow light>Made for real days</Eyebrow>
+              <Eyebrow light>Honest use</Eyebrow>
               <h2 className="mt-5 text-balance text-4xl font-semibold leading-[1.03] tracking-[-0.055em] md:text-6xl">
-                A formula with a clear job.
+                When to use it—and when you don&apos;t need it.
               </h2>
-              <p className="mt-6 max-w-xl text-base leading-7 text-white/60">
-                {product.description}
+              <p className="mt-6 max-w-xl text-base leading-7 text-white/75">
+                {product.whenToUse}
               </p>
+              <div className="mt-6 rounded-[4px] border border-white/15 bg-white/5 p-5">
+                <p className="font-mono text-[10px] uppercase tracking-[0.14em] text-white/60">
+                  When you don&apos;t need this
+                </p>
+                <p className="mt-2 text-sm leading-6 text-white/80">
+                  {product.whenNotNeeded}
+                </p>
+              </div>
               <div className="mt-8 flex flex-wrap gap-2">
                 {product.useCases.map((useCase) => (
                   <Badge key={useCase} tone="dark">
@@ -252,13 +260,19 @@ export default async function ProductPage({ params }: PageProps) {
             <SectionHeading
               eyebrow="Product details"
               title="What is inside."
-              copy="Ingredients, serving weight and usage information for the current formula."
+              copy="Exact active ingredients, elemental doses, serving weight and pre-launch regulatory scope."
             />
             <div className="border-t border-[var(--color-line)]">
               <div className="grid grid-cols-2 gap-4 border-b border-[var(--color-line)] py-5 text-sm">
                 <span className="text-[var(--color-graphite)]">Servings per box</span>
                 <span className="text-right font-medium">
                   {product.servings} × {product.servingWeight} sachets
+                </span>
+              </div>
+              <div className="grid grid-cols-2 gap-4 border-b border-[var(--color-line)] py-5 text-sm">
+                <span className="text-[var(--color-graphite)]">Price per sachet</span>
+                <span className="text-right font-medium">
+                  {formatPrice(perServing)} (same price every day)
                 </span>
               </div>
               <div className="grid grid-cols-2 gap-4 border-b border-[var(--color-line)] py-5 text-sm">
@@ -269,10 +283,15 @@ export default async function ProductPage({ params }: PageProps) {
                 <span className="text-[var(--color-graphite)]">Product type</span>
                 <span className="text-right font-medium">{product.productType}</span>
               </div>
-              <div className="py-6">
+              <div className="border-b border-[var(--color-line)] py-6">
                 <p className="text-sm font-semibold">Ingredient structure</p>
                 <p className="mt-3 text-sm leading-6 text-[var(--color-graphite)]">
                   {product.ingredients.join(", ")}.
+                </p>
+              </div>
+              <div className="py-5">
+                <p className="text-xs leading-5 text-[var(--color-graphite)]">
+                  Pre-launch specification: final FSSAI category, RDA percentages, allergens, licence details and HSN tax rate will appear on the approved label at commercial release.
                 </p>
               </div>
             </div>
@@ -308,10 +327,10 @@ export default async function ProductPage({ params }: PageProps) {
             <div className="flex flex-col justify-between p-7 md:p-10">
               <div>
                 <h2 className="text-balance text-3xl font-semibold tracking-[-0.045em] md:text-5xl">
-                  See how the formulas fit together.
+                  See how Oren formats each label.
                 </h2>
                 <p className="mt-4 max-w-lg text-sm leading-6 text-white/70">
-                  The formulas, the format and the thinking behind the daily system.
+                  Elemental doses, clear use occasions, and honest everyday pricing.
                 </p>
               </div>
               <span className="mt-8 inline-flex items-center gap-3 text-sm font-semibold text-white">

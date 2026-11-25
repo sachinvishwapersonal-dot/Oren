@@ -17,14 +17,14 @@ import { getProduct } from "@/data/products";
 import { faqs } from "@/data/site";
 
 export const metadata: Metadata = {
-  title: "Hydration for heat. Creatine for strength.",
+  title: "Recovery you can check",
   description:
-    "Oren electrolytes and creatine monohydrate, built around 500 mg sodium, 120 mg magnesium and 5 g creatine per sachet.",
+    "Oren Hydrate (500 mg sodium, 120 mg elemental magnesium) and Oren Creatine (3 g 200-mesh creatine monohydrate). Plain doses and honest per-serving pricing.",
   alternates: { canonical: "/" },
 };
 
-const air = getProduct("oren-air")!;
-const creatine = getProduct("simply-creatine")!;
+const hydrate = getProduct("oren-hydrate")!;
+const creatine = getProduct("oren-creatine")!;
 
 const homepageFaq = {
   "@context": "https://schema.org",
@@ -47,11 +47,11 @@ export default function HomePage() {
         <div className="marquee-track flex w-max items-center gap-10 whitespace-nowrap font-mono text-[11px] tracking-[0.12em] text-[var(--color-graphite)]">
           {Array.from({ length: 2 }).map((_, group) => (
             <div key={group} className="flex items-center gap-10" aria-hidden={group === 1}>
-              <span>ZERO SUGAR</span><span className="text-[var(--color-signal)]">●</span>
+              <span>ELEMENTAL DOSES</span><span className="text-[var(--color-signal)]">●</span>
               <span>500 MG SODIUM</span><span className="text-[var(--color-signal)]">●</span>
-              <span>5 G CREATINE</span><span className="text-[var(--color-signal)]">●</span>
-              <span>120 MG MAGNESIUM</span><span className="text-[var(--color-signal)]">●</span>
-              <span>30 SACHETS PER BOX</span><span className="text-[var(--color-signal)]">●</span>
+              <span>3 G CREATINE</span><span className="text-[var(--color-signal)]">●</span>
+              <span>120 MG ELEMENTAL MAGNESIUM</span><span className="text-[var(--color-signal)]">●</span>
+              <span>NO INFLATED MRP</span><span className="text-[var(--color-signal)]">●</span>
             </div>
           ))}
         </div>
@@ -63,16 +63,16 @@ export default function HomePage() {
             {[
               {
                 title: "Hydration",
-                subtitle: "Oren Air",
-                copy: "500 mg sodium, 120 mg magnesium and 200 mg potassium for heat, outdoor sessions and saunas.",
+                subtitle: "Oren Hydrate · ₹30 / sachet",
+                copy: "500 mg sodium, 120 mg elemental magnesium and 200 mg potassium for long, sweat-heavy sessions.",
                 href: "/collections/hydration-series",
                 image:
                   "https://images.unsplash.com/photo-1461896836934-ffe607ba8211?auto=format&fit=crop&w=1200&q=85",
               },
               {
                 title: "Creatine",
-                subtitle: "Simply Creatine",
-                copy: "5 g creatine monohydrate per sachet, with no flavour, sweetener, colour or filler.",
+                subtitle: "Oren Creatine · ₹23 / sachet",
+                copy: "3 g of 200-mesh creatine monohydrate per sachet. Nothing else added: no flavour, sweetener or filler.",
                 href: "/collections/creatine",
                 image:
                   "https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=1200&q=85",
@@ -116,13 +116,13 @@ export default function HomePage() {
         <Container>
           <div className="max-w-5xl">
             <h2 className="text-balance text-4xl font-semibold leading-[1.03] tracking-[-0.055em] md:text-6xl">
-              Measured for daily training.
+              Numbers before adjectives.
             </h2>
             <div className="mt-10 grid gap-6 border-t border-white/15 pt-8 sm:grid-cols-3">
               {[
-                ["500 mg", "Sodium per Oren Air sachet"],
-                ["120 mg", "Three-form elemental magnesium"],
-                ["5 g", "200-mesh creatine monohydrate"],
+                ["500 mg", "Sodium per Oren Hydrate sachet"],
+                ["120 mg", "Elemental magnesium (3 forms)"],
+                ["3 g", "200-mesh creatine monohydrate"],
               ].map(([value, label]) => (
                 <div key={label}>
                   <p className="text-3xl font-semibold tracking-[-0.05em] text-white">{value}</p>
@@ -140,22 +140,22 @@ export default function HomePage() {
         <Container>
           <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-20">
             <Reveal className="order-2 lg:order-1">
-              <ProductArt product={air} className="rounded-[6px]" />
+              <ProductArt product={hydrate} className="rounded-[6px]" />
             </Reveal>
             <div className="order-1 lg:order-2">
               <SectionHeading
-                title="For the days that run hot."
-                copy="Oren Air combines 500 mg sodium, 120 mg magnesium and 200 mg potassium with a clean rhubarb flavour and zero sugar."
+                title="For long, sweat-heavy sessions."
+                copy="Oren Hydrate contains 500 mg sodium, 120 mg elemental magnesium and 200 mg potassium per sachet. For a 30-minute workout, plain water is usually enough."
               />
               <div className="mt-8 grid grid-cols-3 gap-4 border-y border-[var(--color-line)] py-6">
-                {[["500 mg", "Sodium"], ["120 mg", "Magnesium"], ["0 g", "Sugar"]].map(([value, label]) => (
+                {[["500 mg", "Sodium"], ["120 mg", "Elemental Mg"], ["₹30", "Per sachet"]].map(([value, label]) => (
                   <div key={label}>
                     <p className="text-2xl font-semibold tracking-[-0.04em]">{value}</p>
                     <p className="mt-1 text-xs text-[var(--color-graphite)]">{label}</p>
                   </div>
                 ))}
               </div>
-              <ButtonLink href="/products/oren-air" className="mt-8">Shop Oren Air</ButtonLink>
+              <ButtonLink href="/products/oren-hydrate" className="mt-8">Shop Oren Hydrate</ButtonLink>
             </div>
           </div>
         </Container>
@@ -165,11 +165,11 @@ export default function HomePage() {
         <Container>
           <SectionHeading
             title="Explore the range."
-            copy="Targeted hydration and pure creatine in single-serve sachets."
+            copy="Plain elemental doses and one fair daily price shown per sachet."
             align="center"
           />
           <div className="mx-auto mt-12 grid max-w-4xl gap-5 md:grid-cols-2">
-            {[air, creatine].map((product) => (
+            {[hydrate, creatine].map((product) => (
               <ProductCard key={product.id} product={product} />
             ))}
           </div>
@@ -186,13 +186,13 @@ export default function HomePage() {
           <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-20">
             <div>
               <h2 className="text-balance text-4xl font-semibold leading-[1.03] tracking-[-0.055em] md:text-6xl">
-                Five grams of pure creatine. Every day.
+                3 g creatine monohydrate. Nothing else added.
               </h2>
               <p className="mt-6 max-w-xl text-base leading-7 opacity-80">
-                Simply Creatine is 200 mesh creatine monohydrate and nothing else. No flavour, sweetener, colour or filler.
+                Oren Creatine is 200-mesh creatine monohydrate in 3 g single-serve sachets—₹699 for 30 days, ₹23 a day, same price every day.
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
-                <ButtonLink href="/products/simply-creatine">Shop creatine</ButtonLink>
+                <ButtonLink href="/products/oren-creatine">Shop Oren Creatine</ButtonLink>
                 <ButtonLink href="/collections/creatine" variant="outline">View creatine</ButtonLink>
               </div>
             </div>
@@ -203,7 +203,7 @@ export default function HomePage() {
 
       <section className="bg-[var(--color-paper)] py-24 md:py-36">
         <Container>
-          <TaglineReveal text="Hydration for heat. Creatine for strength. Built for the daily routine." />
+          <TaglineReveal text="Know what is inside, when to use it, and what it costs per serving." />
         </Container>
       </section>
 
@@ -211,15 +211,15 @@ export default function HomePage() {
         <Container>
           <div className="grid gap-12 lg:grid-cols-[1fr_1fr] lg:gap-20">
             <SectionHeading
-              title="More than salt and sugar."
-              copy="Oren Air brings electrolytes, magnesium and essential micronutrients together in a single daily sachet."
+              title="Elemental amounts, not compound weight."
+              copy="Every active mineral in Oren Hydrate is listed by the actual elemental amount delivered per sachet."
               light
             />
             <div className="border-t border-white/15">
               {[
-                ["Sodium", "500 mg", "For heat and heavy sweat"],
+                ["Sodium", "500 mg", "For long, sweat-heavy sessions"],
                 ["Potassium", "200 mg", "Alongside sodium and chloride"],
-                ["Magnesium", "120 mg", "Malate, L-threonate and taurate"],
+                ["Magnesium (Elemental)", "120 mg", "Malate 60 mg, L-threonate 40 mg, taurate 20 mg"],
                 ["Micronutrients", "C, B6, B12", "Plus zinc and chromium"],
               ].map(([name, amount, detail]) => (
                 <div key={name} className="grid grid-cols-[1fr_auto] gap-4 border-b border-white/15 py-5">
@@ -238,7 +238,7 @@ export default function HomePage() {
       <section className="border-y border-[var(--color-line)] bg-white py-16 md:py-20">
         <Container>
           <div className="flex flex-col items-start justify-between gap-7 md:flex-row md:items-center">
-            <h2 className="max-w-3xl text-balance text-3xl font-semibold tracking-[-0.05em] md:text-5xl">Built around the day.</h2>
+            <h2 className="max-w-3xl text-balance text-3xl font-semibold tracking-[-0.05em] md:text-5xl">Nothing to hide. Everything to show.</h2>
             <ButtonLink href="/collections/all-products">Shop all products</ButtonLink>
           </div>
         </Container>
@@ -252,9 +252,9 @@ export default function HomePage() {
               <div className="absolute -bottom-32 -left-16 h-96 w-96 rounded-full border border-white/10" />
               <div className="relative my-auto max-w-2xl">
                 <p className="text-balance text-3xl font-medium leading-tight tracking-[-0.04em] md:text-5xl">
-                  “Every dose is on the front of the box, and every ingredient has a clear job.”
+                  “You shouldn&apos;t have to guess what is in your scoop, decode compound weights, or pay inflated MRPs.”
                 </p>
-                <p className="mt-6 text-sm text-white/65">Founder, Oren</p>
+                <p className="mt-6 text-sm text-white/65">Oren Brand Principles</p>
               </div>
               <span className="relative inline-flex items-center gap-3 text-sm font-semibold text-white">
                 <span className="flex h-11 w-11 items-center justify-center rounded-full border border-white/30 transition-transform duration-300 group-hover:scale-105"><PlayIcon size={16} /></span>
@@ -277,15 +277,15 @@ export default function HomePage() {
       <section className="bg-[var(--color-paper)] py-20 md:py-28">
         <Container>
           <SectionHeading
-            title="The category can be simpler."
-            copy="Four common problems shaped how we formulate."
+            title="The problem we solve."
+            copy="Four gaps in Indian recovery supplements shaped how Oren works."
           />
           <div className="mt-12 grid gap-px overflow-hidden rounded-[6px] bg-[var(--color-line)] md:grid-cols-2 lg:grid-cols-4">
             {[
-              ["Sugar first", "Many hydration drinks lead with sugar or artificial syrups instead of a clean electrolyte balance."],
-              ["Underdosed sodium", "Lightly salted water falls short during hot sessions, outdoor training and heavy sweat."],
-              ["Magnesium as an afterthought", "Oren Air puts a measured 120 mg three-form magnesium blend in every sachet."],
-              ["Pre-measured format", "Single-serve sachets mix cleanly into 500 ml of cold water with no scoops or guesswork."],
+              ["Labels are hard to trust", "Indian lab studies have found products that do not match what their labels declare."],
+              ["Compound vs elemental math", "Brands often show compound weight instead of the actual elemental dose inside each serving."],
+              ["Promises bigger than science", "'Instant recovery' and 'no more cramps' overstate what ingredient evidence supports."],
+              ["Discount pricing games", "Inflated MRPs with permanent '50% off' banners make a fair daily price hard to compare."],
             ].map(([title, copy], index) => (
               <article key={title} className="bg-[var(--color-paper)] p-6 md:p-8">
                 <p className="font-mono text-[10px] tracking-[0.14em] text-[var(--color-signal)]">0{index + 1}</p>
@@ -304,11 +304,11 @@ export default function HomePage() {
       <section id="start-here" className="bg-[var(--color-ink)] py-24 text-white md:py-32">
         <Container>
           <div className="mx-auto max-w-4xl text-center">
-            <h2 className="text-balance text-5xl font-semibold leading-[0.98] tracking-[-0.06em] md:text-7xl">Hydrate. Add creatine.</h2>
-            <p className="mx-auto mt-6 max-w-xl text-base leading-7 text-white/70">Oren Air for heat. Simply Creatine every day.</p>
+            <h2 className="text-balance text-5xl font-semibold leading-[0.98] tracking-[-0.06em] md:text-7xl">Recovery, minus the guesswork.</h2>
+            <p className="mx-auto mt-6 max-w-xl text-base leading-7 text-white/70">Oren Hydrate for sweat-heavy heat. Oren Creatine for daily strength training.</p>
             <div className="mt-9 flex flex-wrap justify-center gap-3">
-              <ButtonLink href="/collections/hydration-series" variant="secondary">Shop Oren Air</ButtonLink>
-              <ButtonLink href="/collections/creatine" variant="light">Shop creatine</ButtonLink>
+              <ButtonLink href="/collections/hydration-series" variant="secondary">Shop Oren Hydrate</ButtonLink>
+              <ButtonLink href="/collections/creatine" variant="light">Shop Oren Creatine</ButtonLink>
             </div>
           </div>
         </Container>

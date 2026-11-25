@@ -7,7 +7,7 @@ import { siteConfig } from "@/data/site";
 
 export const metadata: Metadata = {
   title: "About us",
-  description: "The story and principles behind the Oren hydration and creatine range.",
+  description: "Oren makes recovery supplements in India you can check: elemental doses, clear usage limits, and honest per-serving pricing.",
   alternates: { canonical: "/pages/about-us" },
 };
 
@@ -37,10 +37,10 @@ export default function AboutPage() {
           <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
             <div>
               <h1 className="text-balance text-5xl font-semibold leading-[0.98] tracking-[-0.06em] md:text-7xl">
-                A clearer daily system.
+                Recovery you can check.
               </h1>
               <p className="mt-6 max-w-xl text-base leading-7 text-white/60">
-                Oren is built around a simple idea: hydration and daily strength support should be easy to understand, easy to use and matched to the day.
+                Oren makes recovery supplements with clear elemental doses, guidance on when to use them—and when not to—and one fair per-serving price.
               </p>
             </div>
             <div className="relative aspect-[4/3] overflow-hidden rounded-[6px] bg-[var(--color-mist)] text-[var(--color-ink)]">
@@ -58,17 +58,17 @@ export default function AboutPage() {
         <Container>
           <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
             <SectionHeading
-              title="The category needed clearer formulas."
+              title="Why Oren exists."
             />
             <div className="space-y-6 text-base leading-7 text-[var(--color-graphite)]">
               <p>
-                Most hydration ranges ask customers to compare long ingredient lists, inconsistent sodium levels and vague use cases. Oren focuses on clear doses and a specific purpose for every formula.
+                Indian supplement buyers face labels that are hard to trust, compound weights that obscure actual elemental doses, promises bigger than ingredient science, and inflated MRPs with permanent discounts.
               </p>
               <p>
-                Oren Air handles hot sessions, outdoor training and saunas. Simply Creatine covers strength training and the daily routine.
+                Oren is built around a narrower, verifiable standard: show the exact elemental dose on the front, explain when a product is worth taking (and when plain water or food is enough), and charge one transparent price per sachet.
               </p>
               <p>
-                Every sachet stays straightforward: 500 mg sodium and 120 mg triple-form magnesium in Air, 5 g 200-mesh creatine in Simply Creatine, and no unnecessary ingredients.
+                Every final formula, label, and statement goes through Indian food-regulatory review and accredited batch testing before commercial release.
               </p>
             </div>
           </div>
@@ -77,13 +77,13 @@ export default function AboutPage() {
 
       <section className="bg-[var(--color-mist)] py-20 md:py-28">
         <Container>
-          <SectionHeading title="Four principles." />
+          <SectionHeading title="Four brand pillars." />
           <div className="mt-12 grid gap-px overflow-hidden rounded-[6px] bg-[var(--color-line)] md:grid-cols-2 lg:grid-cols-4">
             {[
-              ["Clarity", "Name the formula, the dose and the day it is made for."],
-              ["Measure", "Use specific amounts instead of broad marketing claims."],
-              ["Simplicity", "Keep the routine easy to understand and easy to repeat."],
-              ["Proof", "Support every product claim with clear labels and documentation."],
+              ["Know what's inside", "Every active ingredient shown in the elemental amount that matters, with no proprietary blends."],
+              ["Know when to use it", "Clear use occasions on every page alongside honest 'when you don't need this' guidance."],
+              ["Check the batch", "Independent lab certificates tied directly to the batch number on the pack at launch."],
+              ["Honest price", "One fair everyday price shown per sachet—no inflated MRPs or permanent discount banners."],
             ].map(([title, copy], index) => (
               <article key={title} className="bg-[var(--color-paper)] p-6 md:p-8">
                 <p className="font-mono text-[10px] tracking-[0.14em] text-[var(--color-signal)]">
@@ -105,9 +105,9 @@ export default function AboutPage() {
         <Container>
           <div className="grid gap-4 md:grid-cols-3">
             {[
-              ["500 mg", "Sodium in Oren Air"],
-              ["120 mg", "Three-form magnesium"],
-              ["5 g", "Creatine per sachet"],
+              ["500 mg", "Sodium in Oren Hydrate"],
+              ["120 mg", "Elemental magnesium (3 forms)"],
+              ["3 g", "Creatine per Oren Creatine sachet"],
             ].map(([value, label]) => (
               <div
                 key={label}

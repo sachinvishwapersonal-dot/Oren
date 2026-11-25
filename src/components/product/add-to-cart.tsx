@@ -4,7 +4,6 @@ import { useId, useState } from "react";
 import {
   formatPrice,
   getPerServingPrice,
-  getSubscriptionDiscountPercent,
   getUnitPrice,
   type Product,
   type PurchaseType,
@@ -22,22 +21,14 @@ export function AddToCart({ product }: { product: Product }) {
     value: PurchaseType;
     label: string;
     detail: string;
-    badge?: string;
   }[] = [
-    { value: "once", label: "One time", detail: "30 sachets · single delivery" },
+    { value: "once", label: "Single box", detail: "30 sachets · one-time order" },
     ...(product.subscriptionEligible
       ? [
           {
             value: "monthly" as const,
-            label: "Every month",
-            detail: "30 sachets delivered monthly · cancel anytime",
-            badge: "Save 10%",
-          },
-          {
-            value: "quarterly" as const,
-            label: "Every 3 months",
-            detail: "Quarterly supply replenishment · cancel anytime",
-            badge: "Save 15%",
+            label: "Monthly repeat",
+            detail: "Same everyday price · cancel anytime",
           },
         ]
       : []),
@@ -65,7 +56,6 @@ export function AddToCart({ product }: { product: Product }) {
           <div className="mt-3 grid gap-2">
             {options.map((option) => {
               const optionPrice = getUnitPrice(product.price, option.value);
-              const discount = getSubscriptionDiscountPercent(option.value);
               const isSelected = purchaseType === option.value;
               return (
                 <label
@@ -86,15 +76,8 @@ export function AddToCart({ product }: { product: Product }) {
                       className="h-4 w-4 accent-[var(--color-ink)]"
                     />
                     <span>
-                      <span className="flex items-center gap-2">
-                        <span className="text-sm font-medium text-[var(--color-ink)]">
-                          {option.label}
-                        </span>
-                        {option.badge ? (
-                          <span className="rounded-[2px] bg-[var(--color-signal)] px-1.5 py-0.5 font-mono text-[10px] font-semibold uppercase tracking-wide text-white">
-                            {option.badge}
-                          </span>
-                        ) : null}
+                      <span className="block text-sm font-medium text-[var(--color-ink)]">
+                        {option.label}
                       </span>
                       <span className="mt-0.5 block text-xs text-[var(--color-graphite)]">
                         {option.detail}
@@ -105,11 +88,6 @@ export function AddToCart({ product }: { product: Product }) {
                     <span className="block text-sm font-semibold text-[var(--color-ink)]">
                       {formatPrice(optionPrice)}
                     </span>
-                    {discount > 0 ? (
-                      <span className="block text-xs text-[var(--color-graphite)] line-through">
-                        {formatPrice(product.price)}
-                      </span>
-                    ) : null}
                   </span>
                 </label>
               );

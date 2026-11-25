@@ -7,15 +7,15 @@ export function GET() {
   const productLines = products
     .map(
       (p) =>
-        `- [${p.title}](${siteConfig.url}/products/${p.handle}): ${p.description} Price: ${formatPrice(p.price)} (${formatPrice(getPerServingPrice(p.price, p.servings))}/sachet, ${p.servings} sachets/box).`,
+        `- [${p.title}](${siteConfig.url}/products/${p.handle}): ${p.description} Price: ${formatPrice(p.price)} (${formatPrice(getPerServingPrice(p.price, p.servings))}/sachet, ${p.servings} sachets/box). When not needed: ${p.whenNotNeeded}`,
     )
     .join("\n");
 
   const body = `# ${siteConfig.name}
 
-> ${siteConfig.name} is an Indian sports nutrition brand selling zero-sugar electrolyte drink mixes and 200-mesh creatine monohydrate in single-serve sachets at ${siteConfig.url}. Prices are in Indian Rupees (${siteConfig.currency}) and include GST.
+> ${siteConfig.name} is an Indian recovery supplement brand ("Recovery you can check.") offering electrolyte drink mixes and 200-mesh creatine monohydrate in single-serve sachets at ${siteConfig.url}. Prices are in Indian Rupees (${siteConfig.currency}) with transparent per-serving cost.
 
-## Products (The Daily Routine)
+## Products
 
 ${productLines}
 

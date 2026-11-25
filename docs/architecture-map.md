@@ -1,6 +1,6 @@
 # Architecture Map
 
-This project implements the **Oren** storefront (`Oren Air` + `Simply Creatine`) using the **Silver Garnet** brand palette in Next.js 16.
+This project implements the **Oren** storefront (`Oren Hydrate` + `Oren Creatine`) using the **Silver Garnet** brand palette in Next.js 16.
 
 ## Global shell
 
@@ -17,7 +17,7 @@ This project implements the **Oren** storefront (`Oren Air` + `Simply Creatine`)
 | --- | --- | --- |
 | `/` | `src/app/page.tsx` | Long-form homepage |
 | `/collections/[handle]` | `src/app/collections/[handle]/page.tsx` | Collection pages (`all-products`, `hydration-series`, `creatine`) |
-| `/products/[handle]` | `src/app/products/[handle]/page.tsx` | Product detail pages (`oren-air`, `simply-creatine`) |
+| `/products/[handle]` | `src/app/products/[handle]/page.tsx` | Product detail pages (`oren-hydrate`, `oren-creatine`) |
 | `/pages/about-us` | `src/app/pages/about-us/page.tsx` | Brand story & principles (`AboutPage` JSON-LD) |
 | `/pages/contact` | `src/app/pages/contact/page.tsx` | Contact form & support FAQ |
 | `/pages/[slug]` | `src/app/pages/[slug]/page.tsx` | Policy pages (`shipping`, `returns`, `privacy`, `terms`, `disclaimer`) |

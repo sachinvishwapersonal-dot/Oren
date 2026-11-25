@@ -44,6 +44,8 @@ export type Product = {
   creatineG?: number;
   flavour: string;
   useCases: string[];
+  whenToUse: string;
+  whenNotNeeded: string;
   description: string;
   longDescription: string;
   highlights: string[];
@@ -63,12 +65,12 @@ export type Collection = {
 
 export const products: Product[] = [
   {
-    id: "air",
-    handle: "oren-air",
-    title: "Oren Air",
-    subtitle: "Electrolytes for heat",
+    id: "hydrate",
+    handle: "oren-hydrate",
+    title: "Oren Hydrate",
+    subtitle: "Electrolytes for sweat-heavy days",
     productType: "Electrolyte drink mix",
-    price: 3899,
+    price: 899,
     currency: "INR",
     available: true,
     tone: "mint",
@@ -82,7 +84,7 @@ export const products: Product[] = [
         type: "image",
         label: "Heat training",
         src: "https://images.unsplash.com/photo-1552674605-db6ffd4facb5?auto=format&fit=crop&w=1400&q=85",
-        alt: "Oren Air outdoor heat training session",
+        alt: "Oren Hydrate outdoor heat training session",
       },
       {
         id: "air-heat-run",
@@ -105,7 +107,7 @@ export const products: Product[] = [
         src: "https://assets.mixkit.co/videos/preview/mixkit-man-running-on-a-track-in-slow-motion-40735-large.mp4",
         poster:
           "https://images.unsplash.com/photo-1552674605-db6ffd4facb5?auto=format&fit=crop&w=1000&q=85",
-        alt: "Oren Air outdoor heat endurance reel",
+        alt: "Oren Hydrate outdoor heat endurance reel",
       },
     ],
     servingWeight: "6.6 g",
@@ -114,41 +116,45 @@ export const products: Product[] = [
     potassiumMg: 200,
     magnesiumMg: 120,
     flavour: "Rhubarb",
-    useCases: ["Heat training", "Outdoor sessions", "Saunas"],
+    useCases: ["Heat training", "Outdoor sessions", "Heavy sweat"],
+    whenToUse:
+      "Mix one sachet into 500 ml cold water for long, hot, or sweat-heavy sessions where fluid and sodium losses add up.",
+    whenNotNeeded:
+      "For a 30-minute indoor workout or a normal day at your desk, plain water and food are usually enough.",
     description:
-      "500 mg sodium, 120 mg magnesium and 200 mg potassium for training in the heat and outdoor sessions.",
+      "500 mg sodium, 120 mg elemental magnesium and 200 mg potassium per sachet for long, sweat-heavy sessions.",
     longDescription:
-      "Oren Air pairs 500 mg of sodium with a clean rhubarb flavour. Each sachet delivers 120 mg of elemental magnesium in three forms, 200 mg of potassium and zero sugar.",
+      "Oren Hydrate lists every active mineral in plain elemental numbers: 500 mg sodium, 200 mg potassium and 120 mg elemental magnesium across three forms, with zero sugar.",
     highlights: [
       "500 mg sodium per sachet",
-      "120 mg magnesium in three forms",
+      "120 mg elemental magnesium in three forms",
       "200 mg potassium per sachet",
-      "30 single-serve sachets",
+      "30 single-serve sachets · ₹30 per sachet",
     ],
     ingredients: [
       "Sodium",
       "Potassium",
       "Chloride",
-      "Magnesium malate",
-      "Magnesium L-threonate",
-      "Magnesium taurate",
+      "Magnesium malate (60 mg elemental)",
+      "Magnesium L-threonate (40 mg elemental)",
+      "Magnesium taurate (20 mg elemental)",
       "Vitamin C",
       "Vitamin B6",
       "Vitamin B12",
       "Zinc",
       "Chromium",
-      "Natural rhubarb flavour",
+      "Rhubarb flavour",
     ],
     collections: ["hydration-series", "all-products"],
     subscriptionEligible: true,
   },
   {
     id: "creatine",
-    handle: "simply-creatine",
-    title: "Simply Creatine",
-    subtitle: "One ingredient, 5 g per sachet",
+    handle: "oren-creatine",
+    title: "Oren Creatine",
+    subtitle: "3 g creatine monohydrate per sachet",
     productType: "Creatine",
-    price: 2599,
+    price: 699,
     currency: "INR",
     available: true,
     tone: "lilac",
@@ -162,7 +168,7 @@ export const products: Product[] = [
         type: "image",
         label: "Product shot",
         src: "https://images.unsplash.com/photo-1593095948071-474c5cc2989d?auto=format&fit=crop&w=1200&q=85",
-        alt: "Simply Creatine single-serve supplement setup",
+        alt: "Oren Creatine single-serve supplement setup",
       },
       {
         id: "creatine-strength",
@@ -185,23 +191,27 @@ export const products: Product[] = [
         src: "https://assets.mixkit.co/videos/preview/mixkit-athlete-working-out-with-heavy-ropes-in-a-gym-44471-large.mp4",
         poster:
           "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1000&q=85",
-        alt: "Simply Creatine strength training reel",
+        alt: "Oren Creatine strength training reel",
       },
     ],
-    servingWeight: "5.0 g",
+    servingWeight: "3.0 g",
     servings: 30,
-    creatineG: 5,
+    creatineG: 3,
     flavour: "Unflavoured",
-    useCases: ["Strength training", "Daily routine", "Rest days"],
+    useCases: ["Strength training", "Repeated high-intensity work", "Daily routine"],
+    whenToUse:
+      "Take one 3 g sachet daily as part of a regular strength or high-intensity training routine, including rest days.",
+    whenNotNeeded:
+      "Skip it if you want an instant soreness cure or overnight muscle repair—creatine supports training output through steady daily intake.",
     description:
-      "5 g of creatine monohydrate per sachet with no flavour, sweetener, colour or filler.",
+      "3 g of 200-mesh creatine monohydrate per sachet. Nothing else added: no flavour, sweetener, colour or filler.",
     longDescription:
-      "Simply Creatine uses 200 mesh creatine monohydrate and nothing else. Each box contains 30 sachets with 5 g per serving. Directions: one sachet daily, with no loading phase and no need to skip rest days.",
+      "Oren Creatine contains 3 g of micronised 200-mesh creatine monohydrate per single-serve sachet and nothing else. Built to support repeated high-intensity training with clear dosing and one honest daily price.",
     highlights: [
-      "5 g creatine monohydrate per sachet",
+      "3 g creatine monohydrate per sachet",
       "200 mesh micronised grade",
       "Single ingredient, zero fillers",
-      "30 single-serve sachets",
+      "30 single-serve sachets · ₹23 per sachet",
     ],
     ingredients: ["Creatine monohydrate"],
     collections: ["creatine", "all-products"],
@@ -213,8 +223,8 @@ export const productReels: ProductReel[] = [
   {
     id: "reel-01",
     title: "Track intervals in 36°C heat",
-    tag: "Oren Air · 500 mg Sodium",
-    productHandle: "oren-air",
+    tag: "Oren Hydrate · 500 mg Sodium",
+    productHandle: "oren-hydrate",
     videoUrl:
       "https://assets.mixkit.co/videos/preview/mixkit-man-running-on-a-track-in-slow-motion-40735-large.mp4",
     posterUrl:
@@ -223,9 +233,9 @@ export const productReels: ProductReel[] = [
   },
   {
     id: "reel-02",
-    title: "5 g 200-mesh daily strength block",
-    tag: "Simply Creatine · 5 g",
-    productHandle: "simply-creatine",
+    title: "3 g 200-mesh daily strength block",
+    tag: "Oren Creatine · 3 g",
+    productHandle: "oren-creatine",
     videoUrl:
       "https://assets.mixkit.co/videos/preview/mixkit-athlete-working-out-with-heavy-ropes-in-a-gym-44471-large.mp4",
     posterUrl:
@@ -235,8 +245,8 @@ export const productReels: ProductReel[] = [
   {
     id: "reel-03",
     title: "One sachet into 500 ml cold water",
-    tag: "Oren Air · Rhubarb",
-    productHandle: "oren-air",
+    tag: "Oren Hydrate · 30 Sachets",
+    productHandle: "oren-hydrate",
     videoUrl:
       "https://assets.mixkit.co/videos/preview/mixkit-runner-drinking-water-after-exercising-40745-large.mp4",
     posterUrl:
@@ -245,9 +255,9 @@ export const productReels: ProductReel[] = [
   },
   {
     id: "reel-04",
-    title: "Post-sauna electrolyte & magnesium reload",
-    tag: "Oren Air · 120 mg Magnesium",
-    productHandle: "oren-air",
+    title: "Post-heat electrolyte & magnesium reload",
+    tag: "Oren Hydrate · 120 mg Magnesium",
+    productHandle: "oren-hydrate",
     videoUrl:
       "https://assets.mixkit.co/videos/preview/mixkit-woman-running-on-an-asphalt-road-32807-large.mp4",
     posterUrl:
@@ -262,16 +272,16 @@ export const collections: Collection[] = [
     title: "Hydration",
     eyebrow: "Electrolytes",
     description:
-      "Zero sugar electrolytes built for heat, outdoor sessions and heavy sweat.",
-    products: ["oren-air"],
+      "Zero sugar electrolytes with 500 mg sodium for heat, outdoor sessions and heavy sweat.",
+    products: ["oren-hydrate"],
     tone: "mint",
   },
   {
     handle: "all-products",
     title: "All products",
     eyebrow: "The complete range",
-    description: "Oren Air and Simply Creatine, built to work as one daily routine.",
-    products: ["oren-air", "simply-creatine"],
+    description: "Oren Hydrate and Oren Creatine — clear doses, honest per-serving prices.",
+    products: ["oren-hydrate", "oren-creatine"],
     tone: "sand",
   },
   {
@@ -279,8 +289,8 @@ export const collections: Collection[] = [
     title: "Creatine",
     eyebrow: "One simple ingredient",
     description:
-      "5 g of creatine monohydrate per sachet, with no flavour, sweetener or filler.",
-    products: ["simply-creatine"],
+      "3 g of creatine monohydrate per sachet, with no flavour, sweetener or filler.",
+    products: ["oren-creatine"],
     tone: "lilac",
   },
 ];
@@ -305,9 +315,8 @@ export function getProductsForCollection(handle: string) {
     .filter((product): product is Product => Boolean(product));
 }
 
-export function getSubscriptionDiscountPercent(purchaseType: PurchaseType): number {
-  if (purchaseType === "monthly") return 10;
-  if (purchaseType === "quarterly") return 15;
+export function getSubscriptionDiscountPercent(_purchaseType: PurchaseType): number {
+  void _purchaseType;
   return 0;
 }
 

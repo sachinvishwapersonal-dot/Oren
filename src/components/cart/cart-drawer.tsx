@@ -132,10 +132,8 @@ export function CartDrawer() {
                         </h3>
                         <p className="mt-1 text-xs text-[var(--color-graphite)]">
                           {item.purchaseType === "once"
-                            ? "One time"
-                            : item.purchaseType === "monthly"
-                              ? "Every month (10% off)"
-                              : "Every 3 months (15% off)"}
+                            ? "Single box"
+                            : "Monthly repeat"}
                         </p>
                       </div>
                       <div className="shrink-0 text-right">
@@ -268,7 +266,7 @@ export function CartDrawer() {
               Start with your day
             </h3>
             <p className="mt-3 max-w-xs text-sm leading-6 text-[var(--color-graphite)]">
-              Choose Oren Air for heat or add Simply Creatine to build your daily routine.
+              Choose Oren Hydrate for heat or add Oren Creatine to build your routine.
             </p>
             <Link
               href="/collections/all-products"
