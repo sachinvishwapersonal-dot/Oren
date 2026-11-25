@@ -1,0 +1,161 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+
+  --color-ink: #0f1e20;
+  --color-ink-soft: #5f6466;
+  --color-paper: #ffffff;
+  --color-mist: #f2f2f2;
+  --color-line: #cecece;
+  --color-silver: #cecece;
+  --color-graphite: #5f6466;
+  --color-signal: #b3263e;
+  --color-signal-dark: #8a1c30;
+
+  --ease-brand: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+:root {
+  --color-ink: #0f1e20;
+  --color-ink-soft: #5f6466;
+  --color-paper: #ffffff;
+  --color-mist: #f2f2f2;
+  --color-line: #cecece;
+  --color-silver: #cecece;
+  --color-graphite: #5f6466;
+  --color-signal: #b3263e;
+  --color-signal-dark: #8a1c30;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 130px;
+}
+
+body {
+  margin: 0;
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--color-signal);
+  color: #ffffff;
+}
+
+a,
+button,
+input,
+textarea,
+select {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button,
+summary {
+  cursor: pointer;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible,
+summary:focus-visible {
+  outline: 2px solid var(--color-signal);
+  outline-offset: 3px;
+}
+
+.button-shape {
+  border-radius: 3px;
+}
+
+.button-shape:focus-visible {
+  outline: 2px solid var(--color-signal);
+  outline-offset: 3px;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition:
+    opacity 700ms var(--ease-brand),
+    transform 700ms var(--ease-brand);
+}
+
+.reveal[data-visible="true"] {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.tagline-word {
+  color: color-mix(in srgb, var(--color-ink) 65%, transparent);
+  transition: color 600ms var(--ease-brand);
+}
+
+.tagline-word[data-active="true"] {
+  color: var(--color-ink);
+}
+
+.mobile-link {
+  opacity: 0;
+  transform: translateY(24px);
+  animation: mobile-link-in 500ms var(--ease-brand) forwards;
+}
+
+@keyframes mobile-link-in {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-heading {
+  background: linear-gradient(90deg, #ffffff 0%, #cecece 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.marquee-track {
+  animation: marquee 28s linear infinite;
+}
+
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+
+  .tagline-word {
+    color: var(--color-ink);
+  }
+}
