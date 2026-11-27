@@ -11,7 +11,7 @@ export function SiteFooter() {
           <div>
             <Link href="/" className="text-3xl font-bold tracking-[0.16em]">OREN</Link>
             <p className="mt-5 max-w-xs text-sm leading-6 text-white/70">
-              Recovery you can check. Plain elemental doses, clear use limits, and one fair per-serving price.
+              Recovery you can check. Declared per-tablet milligram doses, standardised actives, and clear usage guidance.
             </p>
             <div className="mt-8 max-w-sm">
               <NewsletterForm compact />

@@ -80,8 +80,8 @@ export default async function CollectionPage({ params }: PageProps) {
         <Container>
           <nav aria-label="Product categories" className="flex gap-2 overflow-x-auto">
             {[
-              { label: "Hydration", href: "/collections/hydration-series" },
-              { label: "Creatine", href: "/collections/creatine" },
+              { label: "Night Recovery", href: "/collections/night-recovery" },
+              { label: "Active Recovery", href: "/collections/active-recovery" },
               { label: "All", href: "/collections/all-products" },
             ].map((tab) => (
               <Link

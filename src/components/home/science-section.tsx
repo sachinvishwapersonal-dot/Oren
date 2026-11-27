@@ -15,7 +15,7 @@ export function ScienceSection() {
       <Container>
         <SectionHeading
           title="Built around what matters."
-          copy="A clear look at the electrolytes, minerals and practical details in every serving."
+          copy="A clear look at the extracts, amino acids, minerals and active vitamins in every chewable tablet."
         />
         <div className="mt-12 grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
           {scienceCards.map((card) => (

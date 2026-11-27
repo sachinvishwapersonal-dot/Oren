@@ -228,7 +228,7 @@ export function SiteHeader() {
                   id="site-search"
                   name="q"
                   type="search"
-                  placeholder="Try electrolytes or creatine"
+                  placeholder="Try Night Recovery, Active Recovery, or Tart Cherry"
                   className="min-w-0 flex-1 bg-transparent text-base text-[var(--color-ink)] outline-none placeholder:text-[var(--color-graphite)]"
                 />
                 <button type="submit" className="text-sm font-semibold text-[var(--color-ink)]">

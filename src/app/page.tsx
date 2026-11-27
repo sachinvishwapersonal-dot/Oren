@@ -19,12 +19,12 @@ import { faqs } from "@/data/site";
 export const metadata: Metadata = {
   title: "Recovery you can check",
   description:
-    "Oren Hydrate (500 mg sodium, 120 mg elemental magnesium) and Oren Creatine (3 g 200-mesh creatine monohydrate). Plain doses and honest per-serving pricing.",
+    "Night Recovery Capsule (100 mg Tart Cherry, 150 mg Magnesium Bisglycinate 22%, 100 mg KSM-66 Ashwagandha, 50 mg L-Theanine) and Active Recovery (200 mg Tart Cherry, 200 mg L-Glutamine, Vitamin C, Zinc, Vitamin B6) chewable tablets.",
   alternates: { canonical: "/" },
 };
 
-const hydrate = getProduct("oren-hydrate")!;
-const creatine = getProduct("oren-creatine")!;
+const nightRecovery = getProduct("night-recovery")!;
+const activeRecovery = getProduct("active-recovery")!;
 
 const homepageFaq = {
   "@context": "https://schema.org",
@@ -47,11 +47,11 @@ export default function HomePage() {
         <div className="marquee-track flex w-max items-center gap-10 whitespace-nowrap font-mono text-[11px] tracking-[0.12em] text-[var(--color-graphite)]">
           {Array.from({ length: 2 }).map((_, group) => (
             <div key={group} className="flex items-center gap-10" aria-hidden={group === 1}>
-              <span>ELEMENTAL DOSES</span><span className="text-[var(--color-signal)]">●</span>
-              <span>500 MG SODIUM</span><span className="text-[var(--color-signal)]">●</span>
-              <span>3 G CREATINE</span><span className="text-[var(--color-signal)]">●</span>
-              <span>120 MG ELEMENTAL MAGNESIUM</span><span className="text-[var(--color-signal)]">●</span>
-              <span>NO INFLATED MRP</span><span className="text-[var(--color-signal)]">●</span>
+              <span>CHEWABLE TABLETS</span><span className="text-[var(--color-signal)]">●</span>
+              <span>150 MG MAGNESIUM BISGLYCINATE 22%</span><span className="text-[var(--color-signal)]">●</span>
+              <span>200 MG TART CHERRY EXTRACT</span><span className="text-[var(--color-signal)]">●</span>
+              <span>100 MG KSM-66 ASHWAGANDHA (5%)</span><span className="text-[var(--color-signal)]">●</span>
+              <span>200 MG L-GLUTAMINE</span><span className="text-[var(--color-signal)]">●</span>
             </div>
           ))}
         </div>
@@ -62,18 +62,18 @@ export default function HomePage() {
           <div className="grid gap-4 md:grid-cols-2">
             {[
               {
-                title: "Hydration",
-                subtitle: "Oren Hydrate · ₹30 / sachet",
-                copy: "500 mg sodium, 120 mg elemental magnesium and 200 mg potassium for long, sweat-heavy sessions.",
-                href: "/collections/hydration-series",
+                title: "Night Recovery",
+                subtitle: "Chewable tablets · Coming soon",
+                copy: "100 mg Tart Cherry Extract, 150 mg Magnesium Bisglycinate 22%, 100 mg KSM-66 Ashwagandha (5% Withanolides), and 50 mg L-Theanine.",
+                href: "/collections/night-recovery",
                 image:
                   "https://images.unsplash.com/photo-1461896836934-ffe607ba8211?auto=format&fit=crop&w=1200&q=85",
               },
               {
-                title: "Creatine",
-                subtitle: "Oren Creatine · ₹23 / sachet",
-                copy: "3 g of 200-mesh creatine monohydrate per sachet. Nothing else added: no flavour, sweetener or filler.",
-                href: "/collections/creatine",
+                title: "Active Recovery",
+                subtitle: "Chewable tablets · Coming soon",
+                copy: "200 mg Tart Cherry Extract, 200 mg L-Glutamine, 40 mg Vitamin C, 10 mg Zinc (as Zinc Citrate), and 2 mg Vitamin B6 (P-5-P).",
+                href: "/collections/active-recovery",
                 image:
                   "https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=1200&q=85",
               },
@@ -120,9 +120,9 @@ export default function HomePage() {
             </h2>
             <div className="mt-10 grid gap-6 border-t border-white/15 pt-8 sm:grid-cols-3">
               {[
-                ["500 mg", "Sodium per Oren Hydrate sachet"],
-                ["120 mg", "Elemental magnesium (3 forms)"],
-                ["3 g", "200-mesh creatine monohydrate"],
+                ["150 mg", "Magnesium Bisglycinate 22% per Night Recovery tab"],
+                ["100 mg", "KSM-66 Ashwagandha (5% Withanolides) per tab"],
+                ["200 mg", "Tart Cherry & L-Glutamine per Active Recovery tablet"],
               ].map(([value, label]) => (
                 <div key={label}>
                   <p className="text-3xl font-semibold tracking-[-0.05em] text-white">{value}</p>
@@ -140,22 +140,28 @@ export default function HomePage() {
         <Container>
           <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-20">
             <Reveal className="order-2 lg:order-1">
-              <ProductArt product={hydrate} className="rounded-[6px]" />
+              <ProductArt product={nightRecovery} className="rounded-[6px]" />
             </Reveal>
             <div className="order-1 lg:order-2">
               <SectionHeading
-                title="For long, sweat-heavy sessions."
-                copy="Oren Hydrate contains 500 mg sodium, 120 mg elemental magnesium and 200 mg potassium per sachet. For a 30-minute workout, plain water is usually enough."
+                title="Evening wind-down & overnight recovery."
+                copy="Night Recovery Capsule is a chewable tablet combining 100 mg Tart Cherry Extract (Generic), 150 mg Magnesium Bisglycinate 22%, 100 mg KSM-66 Ashwagandha Extract (5% Withanolides), and 50 mg L-Theanine."
               />
               <div className="mt-8 grid grid-cols-3 gap-4 border-y border-[var(--color-line)] py-6">
-                {[["500 mg", "Sodium"], ["120 mg", "Elemental Mg"], ["₹30", "Per sachet"]].map(([value, label]) => (
+                {[
+                  ["150 mg", "Mg Bisglycinate 22%"],
+                  ["100 mg", "KSM-66 (5%)"],
+                  ["50 mg", "L-Theanine"],
+                ].map(([value, label]) => (
                   <div key={label}>
                     <p className="text-2xl font-semibold tracking-[-0.04em]">{value}</p>
                     <p className="mt-1 text-xs text-[var(--color-graphite)]">{label}</p>
                   </div>
                 ))}
               </div>
-              <ButtonLink href="/products/oren-hydrate" className="mt-8">Shop Oren Hydrate</ButtonLink>
+              <ButtonLink href="/products/night-recovery" className="mt-8">
+                Shop Night Recovery
+              </ButtonLink>
             </div>
           </div>
         </Container>
@@ -165,11 +171,11 @@ export default function HomePage() {
         <Container>
           <SectionHeading
             title="Explore the range."
-            copy="Plain elemental doses and one fair daily price shown per sachet."
+            copy="Two targeted chewable tablet formulas with every ingredient declared in milligrams per tablet."
             align="center"
           />
           <div className="mx-auto mt-12 grid max-w-4xl gap-5 md:grid-cols-2">
-            {[hydrate, creatine].map((product) => (
+            {[nightRecovery, activeRecovery].map((product) => (
               <ProductCard key={product.id} product={product} />
             ))}
           </div>
@@ -177,8 +183,8 @@ export default function HomePage() {
       </section>
 
       <ReelsSection
-        title="Training & product reels."
-        copy="Hydration in the heat and daily strength work."
+        title="Training & recovery reels."
+        copy="Post-session active recovery and evening wind-down."
       />
 
       <section id="supporting" className="bg-[var(--color-mist)] py-20 text-[var(--color-ink)] md:py-28">
@@ -186,50 +192,62 @@ export default function HomePage() {
           <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-20">
             <div>
               <h2 className="text-balance text-4xl font-semibold leading-[1.03] tracking-[-0.055em] md:text-6xl">
-                3 g creatine monohydrate. Nothing else added.
+                Post-session Active Recovery in a chewable tablet.
               </h2>
               <p className="mt-6 max-w-xl text-base leading-7 opacity-80">
-                Oren Creatine is 200-mesh creatine monohydrate in 3 g single-serve sachets—₹699 for 30 days, ₹23 a day, same price every day.
+                Active Recovery combines 200 mg Tart Cherry Extract (Generic), 200 mg L-Glutamine, 40 mg Vitamin C (Ascorbic Acid), 10 mg Zinc (as Zinc Citrate), and 2 mg Vitamin B6 (Pyridoxal-5-Phosphate) per chewable tablet.
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
-                <ButtonLink href="/products/oren-creatine">Shop Oren Creatine</ButtonLink>
-                <ButtonLink href="/collections/creatine" variant="outline">View creatine</ButtonLink>
+                <ButtonLink href="/products/active-recovery">Shop Active Recovery</ButtonLink>
+                <ButtonLink href="/collections/active-recovery" variant="outline">
+                  View formula
+                </ButtonLink>
               </div>
             </div>
-            <ProductArt product={creatine} className="rounded-[6px]" />
+            <ProductArt product={activeRecovery} className="rounded-[6px]" />
           </div>
         </Container>
       </section>
 
       <section className="bg-[var(--color-paper)] py-24 md:py-36">
         <Container>
-          <TaglineReveal text="Know what is inside, when to use it, and what it costs per serving." />
+          <TaglineReveal text="Know what is inside, how it is standardised, and when to use it." />
         </Container>
       </section>
 
       <section className="bg-[var(--color-ink)] py-20 text-white md:py-28">
         <Container>
-          <div className="grid gap-12 lg:grid-cols-[1fr_1fr] lg:gap-20">
-            <SectionHeading
-              title="Elemental amounts, not compound weight."
-              copy="Every active mineral in Oren Hydrate is listed by the actual elemental amount delivered per sachet."
-              light
-            />
-            <div className="border-t border-white/15">
-              {[
-                ["Sodium", "500 mg", "For long, sweat-heavy sessions"],
-                ["Potassium", "200 mg", "Alongside sodium and chloride"],
-                ["Magnesium (Elemental)", "120 mg", "Malate 60 mg, L-threonate 40 mg, taurate 20 mg"],
-                ["Micronutrients", "C, B6, B12", "Plus zinc and chromium"],
-              ].map(([name, amount, detail]) => (
-                <div key={name} className="grid grid-cols-[1fr_auto] gap-4 border-b border-white/15 py-5">
-                  <div>
-                    <p className="text-base font-semibold">{name}</p>
-                    <p className="mt-1 text-xs text-white/65">{detail}</p>
+          <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
+            <div>
+              <SectionHeading
+                title="Night Recovery Capsule."
+                copy="Chewable tablets · Complete ingredient declaration per tab."
+                light
+              />
+              <div className="mt-8 border-t border-white/15">
+                {nightRecovery.formulaBreakdown.map((item) => (
+                  <div key={item.name} className="grid grid-cols-[1fr_auto] gap-4 border-b border-white/15 py-5">
+                    <p className="text-base font-semibold">{item.name}</p>
+                    <p className="font-mono text-sm text-white">{item.amount} / Tab</p>
                   </div>
-                  <p className="font-mono text-sm text-white">{amount}</p>
-                </div>
-              ))}
+                ))}
+              </div>
+            </div>
+
+            <div>
+              <SectionHeading
+                title="Active Recovery."
+                copy="Chewable tablets · Complete ingredient declaration per tablet."
+                light
+              />
+              <div className="mt-8 border-t border-white/15">
+                {activeRecovery.formulaBreakdown.map((item) => (
+                  <div key={item.name} className="grid grid-cols-[1fr_auto] gap-4 border-b border-white/15 py-5">
+                    <p className="text-base font-semibold">{item.name}</p>
+                    <p className="font-mono text-sm text-white">{item.amount} / Tablet</p>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </Container>
@@ -252,7 +270,7 @@ export default function HomePage() {
               <div className="absolute -bottom-32 -left-16 h-96 w-96 rounded-full border border-white/10" />
               <div className="relative my-auto max-w-2xl">
                 <p className="text-balance text-3xl font-medium leading-tight tracking-[-0.04em] md:text-5xl">
-                  “You shouldn&apos;t have to guess what is in your scoop, decode compound weights, or pay inflated MRPs.”
+                  “You shouldn&apos;t have to guess what is in your tablet, decode proprietary blends, or settle for vague labels.”
                 </p>
                 <p className="mt-6 text-sm text-white/65">Oren Brand Principles</p>
               </div>
@@ -283,9 +301,9 @@ export default function HomePage() {
           <div className="mt-12 grid gap-px overflow-hidden rounded-[6px] bg-[var(--color-line)] md:grid-cols-2 lg:grid-cols-4">
             {[
               ["Labels are hard to trust", "Indian lab studies have found products that do not match what their labels declare."],
-              ["Compound vs elemental math", "Brands often show compound weight instead of the actual elemental dose inside each serving."],
+              ["Standardisation left vague", "Extracts and mineral chelates are often listed without their actual standardisation percentage or active coenzyme form."],
               ["Promises bigger than science", "'Instant recovery' and 'no more cramps' overstate what ingredient evidence supports."],
-              ["Discount pricing games", "Inflated MRPs with permanent '50% off' banners make a fair daily price hard to compare."],
+              ["No clear usage boundaries", "Most supplements tell you to take them every day without explaining when rest and whole food are enough."],
             ].map(([title, copy]) => (
               <article key={title} className="bg-[var(--color-paper)] p-6 md:p-8">
                 <h3 className="text-xl font-semibold tracking-[-0.03em]">{title}</h3>
@@ -304,10 +322,10 @@ export default function HomePage() {
         <Container>
           <div className="mx-auto max-w-4xl text-center">
             <h2 className="text-balance text-5xl font-semibold leading-[0.98] tracking-[-0.06em] md:text-7xl">Recovery, minus the guesswork.</h2>
-            <p className="mx-auto mt-6 max-w-xl text-base leading-7 text-white/70">Oren Hydrate for sweat-heavy heat. Oren Creatine for daily strength training.</p>
+            <p className="mx-auto mt-6 max-w-xl text-base leading-7 text-white/70">Night Recovery Capsule for evening wind-down. Active Recovery for post-training sessions.</p>
             <div className="mt-9 flex flex-wrap justify-center gap-3">
-              <ButtonLink href="/collections/hydration-series" variant="secondary">Shop Oren Hydrate</ButtonLink>
-              <ButtonLink href="/collections/creatine" variant="light">Shop Oren Creatine</ButtonLink>
+              <ButtonLink href="/collections/night-recovery" variant="secondary">Shop Night Recovery</ButtonLink>
+              <ButtonLink href="/collections/active-recovery" variant="light">Shop Active Recovery</ButtonLink>
             </div>
           </div>
         </Container>

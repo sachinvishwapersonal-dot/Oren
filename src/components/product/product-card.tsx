@@ -1,14 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
-import {
-  formatPrice,
-  getPerServingPrice,
-  type Product,
-} from "@/data/products";
-import { useCart } from "@/components/cart/cart-provider";
-import { PlusIcon, CheckIcon } from "@/components/ui/icons";
+import type { Product } from "@/data/products";
 
 export function ProductCard({
   product,
@@ -17,17 +10,6 @@ export function ProductCard({
   product: Product;
   priority?: boolean;
 }) {
-  const { addItem } = useCart();
-  const [added, setAdded] = useState(false);
-
-  function quickAdd() {
-    addItem(product.id, 1, "once");
-    setAdded(true);
-    window.setTimeout(() => setAdded(false), 1400);
-  }
-
-  const perServing = getPerServingPrice(product.price, product.servings);
-
   return (
     <article className="group flex min-w-0 flex-col">
       <div className="relative overflow-hidden rounded-[3px] bg-[var(--color-mist)]">
@@ -52,15 +34,6 @@ export function ProductCard({
           />
           <div className="absolute inset-x-0 top-0 h-1 bg-[var(--color-signal)]" />
         </Link>
-
-        <button
-          type="button"
-          onClick={quickAdd}
-          className="absolute bottom-3 right-3 flex h-11 w-11 items-center justify-center rounded-full bg-white text-[var(--color-ink)] shadow-md transition-transform duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] hover:scale-105 active:scale-95"
-          aria-label={`Add ${product.title} to cart`}
-        >
-          {added ? <CheckIcon size={18} /> : <PlusIcon size={18} />}
-        </button>
       </div>
 
       <div className="flex flex-1 flex-col pt-4">
@@ -74,23 +47,13 @@ export function ProductCard({
             </p>
           </div>
           <div className="shrink-0 text-right">
-            <p className="text-base font-semibold text-[var(--color-ink)]">
-              {formatPrice(product.price)}
+            <p className="font-mono text-xs font-semibold uppercase tracking-[0.08em] text-[var(--color-signal)]">
+              Coming soon
             </p>
-            <p className="font-mono text-[10px] text-[var(--color-graphite)]">
-              {formatPrice(perServing)} / sachet
-            </p>
-            {product.compareAtPrice ? (
-              <p className="text-xs text-[var(--color-graphite)] line-through">
-                {formatPrice(product.compareAtPrice)}
-              </p>
-            ) : null}
           </div>
         </div>
         <div className="mt-4 flex items-center gap-2 font-mono text-[10px] tracking-[0.08em] text-[var(--color-graphite)]">
-          <span>
-            {product.servings} {product.productType === "Accessory" ? "unit" : "sachets"}
-          </span>
+          <span>{product.servings} chewable tablets</span>
           <span aria-hidden="true">/</span>
           <span>{product.flavour}</span>
         </div>

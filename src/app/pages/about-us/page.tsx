@@ -7,7 +7,7 @@ import { siteConfig } from "@/data/site";
 
 export const metadata: Metadata = {
   title: "About us",
-  description: "Oren makes recovery supplements in India you can check: elemental doses, clear usage limits, and honest per-serving pricing.",
+  description: "Oren makes recovery supplements in India you can check: declared per-tablet milligram doses, standardised extracts, and clear usage limits.",
   alternates: { canonical: "/pages/about-us" },
 };
 
@@ -40,7 +40,7 @@ export default function AboutPage() {
                 Recovery you can check.
               </h1>
               <p className="mt-6 max-w-xl text-base leading-7 text-white/60">
-                Oren makes recovery supplements with clear elemental doses, guidance on when to use them—and when not to—and one fair per-serving price.
+                Oren makes chewable recovery tablets with clear milligram disclosures, standardised extracts, and honest guidance on when to use them—and when not to.
               </p>
             </div>
             <div className="relative aspect-[4/3] overflow-hidden rounded-[6px] bg-[var(--color-mist)] text-[var(--color-ink)]">
@@ -62,10 +62,10 @@ export default function AboutPage() {
             />
             <div className="space-y-6 text-base leading-7 text-[var(--color-graphite)]">
               <p>
-                Indian supplement buyers face labels that are hard to trust, compound weights that obscure actual elemental doses, promises bigger than ingredient science, and inflated MRPs with permanent discounts.
+                Indian supplement buyers face labels that are hard to trust, vague extract listings that obscure actual standardisation percentages, and promises bigger than ingredient science.
               </p>
               <p>
-                Oren is built around a narrower, verifiable standard: show the exact elemental dose on the front, explain when a product is worth taking (and when plain water or food is enough), and charge one transparent price per sachet.
+                Oren is built around a narrower, verifiable standard: show the exact milligram dose and extract standardisation on the front, and explain when a product is worth taking (and when rest or food is enough).
               </p>
               <p>
                 Every final formula, label, and statement goes through Indian food-regulatory review and accredited batch testing before commercial release.
@@ -83,7 +83,7 @@ export default function AboutPage() {
               ["Know what's inside", "Every active ingredient shown in the elemental amount that matters, with no proprietary blends."],
               ["Know when to use it", "Clear use occasions on every page alongside honest 'when you don't need this' guidance."],
               ["Check the batch", "Independent lab certificates tied directly to the batch number on the pack at launch."],
-              ["Honest price", "One fair everyday price shown per sachet—no inflated MRPs or permanent discount banners."],
+              ["Chewable format", "Pre-measured chewable tablets designed for post-training and evening recovery without mixing powders."],
             ].map(([title, copy], index) => (
               <article key={title} className="bg-[var(--color-paper)] p-6 md:p-8">
                 <p className="font-mono text-[10px] tracking-[0.14em] text-[var(--color-signal)]">
@@ -105,9 +105,9 @@ export default function AboutPage() {
         <Container>
           <div className="grid gap-4 md:grid-cols-3">
             {[
-              ["500 mg", "Sodium in Oren Hydrate"],
-              ["120 mg", "Elemental magnesium (3 forms)"],
-              ["3 g", "Creatine per Oren Creatine sachet"],
+              ["150 mg", "Magnesium Bisglycinate 22% in Night Recovery"],
+              ["100 mg", "KSM-66 Ashwagandha (5% Withanolides)"],
+              ["200 mg", "Tart Cherry & L-Glutamine in Active Recovery"],
             ].map(([value, label]) => (
               <div
                 key={label}

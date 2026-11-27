@@ -2,7 +2,7 @@ export const siteConfig = {
   name: "Oren",
   tagline: "Recovery you can check.",
   description:
-    "Recovery supplements in India with plain elemental doses, clear guidance on when to use them, and one fair per-serving price.",
+    "Chewable recovery tablets in India with exact per-tablet milligram disclosures: Night Recovery Capsule and Active Recovery.",
   url: "https://oren.in",
   locale: "en_IN",
   countryCode: "IN",
@@ -26,8 +26,8 @@ export const navigation = {
   ],
   footer: [
     { label: "Shop all", href: "/collections/all-products" },
-    { label: "Hydration", href: "/collections/hydration-series" },
-    { label: "Creatine", href: "/collections/creatine" },
+    { label: "Night Recovery", href: "/collections/night-recovery" },
+    { label: "Active Recovery", href: "/collections/active-recovery" },
     { label: "The science", href: "/#science" },
     { label: "About us", href: "/pages/about-us" },
     { label: "Contact", href: "/pages/contact" },
@@ -40,114 +40,114 @@ export const navigation = {
 } as const;
 
 export const trustPoints = [
-  { title: "Elemental doses", detail: "Declared in plain numbers" },
-  { title: "One honest price", detail: "Shown per sachet" },
+  { title: "Declared mg/tablet", detail: "Exact per-tablet breakdown" },
+  { title: "Chewable format", detail: "No shaker or mixing needed" },
+  { title: "Standardised actives", detail: "KSM-66 (5%) & Bisglycinate 22%" },
+  { title: "Active B6 & Zinc", detail: "P-5-P & Zinc Citrate forms" },
   { title: "Clear limits", detail: "When you don't need it" },
-  { title: "Zero sugar", detail: "Nothing unnecessary" },
-  { title: "Vegan", detail: "Plant-sourced ingredients" },
-  { title: "Gluten free", detail: "No fillers or colours" },
+  { title: "Coming soon", detail: "Pre-launch formula showcase" },
 ] as const;
 
 export const faqs = [
   {
     question: "What does 'Recovery you can check' mean?",
     answer:
-      "Every Oren product is built around four standards: exact active ingredients shown in elemental amounts, clear guidance on when to use it and when water or food is enough, independent batch certificates published at launch, and one everyday price shown per sachet without inflated MRPs.",
+      "Every Oren product is built around clear standards: exact active ingredients and standardisation percentages declared in mg per chewable tablet, clear guidance on when to use it and when rest or food is enough, and independent batch certificates published at launch.",
   },
   {
-    question: "What is inside Oren Hydrate and Oren Creatine?",
+    question: "What is inside Night Recovery Capsule (Chewable tablets)?",
     answer:
-      "Each Oren Hydrate sachet contains 500 mg sodium, 200 mg potassium, chloride and 120 mg of elemental magnesium in three forms, plus vitamin C, B6, B12, zinc and chromium. Oren Creatine contains 3 g of 200-mesh creatine monohydrate per sachet and nothing else.",
+      "Each Night Recovery chewable tablet contains 100 mg Tart Cherry Extract (Generic), 150 mg Magnesium Bisglycinate 22%, 100 mg KSM-66 Ashwagandha Extract (5% Withanolides), and 50 mg L-Theanine.",
   },
   {
-    question: "Why list elemental magnesium instead of compound weight?",
+    question: "What is inside Active Recovery (Chewable tablets)?",
     answer:
-      "Many labels show total compound weight (such as 2,000 mg of a magnesium compound) rather than the actual elemental magnesium you consume. Oren declares elemental amounts directly: 60 mg from malate, 40 mg from L-threonate, and 20 mg from taurate (120 mg total).",
+      "Each Active Recovery chewable tablet contains 200 mg Tart Cherry Extract (Generic), 200 mg L-Glutamine, 40 mg Vitamin C (Ascorbic Acid), 10 mg Zinc (as Zinc Citrate), and 2 mg Vitamin B6 (Pyridoxal-5-Phosphate).",
   },
   {
-    question: "When should I use Oren Hydrate — and when is water enough?",
+    question: "Why specify Magnesium Bisglycinate 22% and Pyridoxal-5-Phosphate?",
     answer:
-      "Use Oren Hydrate during long, hot, or sweat-heavy training sessions where sodium and fluid losses are significant. For a short 30-minute indoor workout or normal desk day, plain water is usually enough.",
+      "Naming the exact chemical form and standardisation lets you verify what you are taking: Magnesium Bisglycinate 22% declares the chelate percentage directly, KSM-66 Ashwagandha is standardised to 5% Withanolides, Zinc is supplied as Zinc Citrate, and Vitamin B6 is supplied in its active coenzyme form, Pyridoxal-5-Phosphate (P-5-P).",
   },
   {
-    question: "Why 3 g of creatine per sachet, and how do I take it?",
+    question: "How do I use Night Recovery vs Active Recovery?",
     answer:
-      "3 g per sachet matches the standard daily serving for adults in India, with zero flavour, sweetener, or fillers. Take one sachet daily as part of your training routine—creatine works through steady daily intake rather than as an overnight soreness fix.",
+      "Use Active Recovery after training sessions for daytime tart cherry, L-glutamine, vitamin C, zinc, and B6 support. Use Night Recovery in the evening on demanding training days for magnesium bisglycinate, KSM-66 ashwagandha, L-theanine, and tart cherry support.",
   },
   {
-    question: "Why doesn't Oren run permanent 50% off sales?",
+    question: "Why a chewable tablet format?",
     answer:
-      "Instead of inflating an MRP only to run constant discounts, Oren sets one fair everyday price and displays the cost per sachet: ₹899 for 30 sachets of Oren Hydrate (₹30/sachet) and ₹699 for 30 sachets of Oren Creatine (₹23/sachet).",
+      "Chewable tablets give you a pre-measured milligram dose without needing a shaker bottle or water after training or before bed.",
   },
 ] as const;
 
 export const scienceCards = [
   {
     number: "01",
-    title: "Sodium, declared",
-    copy: "Oren Hydrate contains 500 mg of sodium per sachet for hot, sweat-heavy sessions.",
-    metric: "500 mg",
-    label: "sodium per sachet",
+    title: "Tart Cherry Extract",
+    copy: "100 mg per tab in Night Recovery and 200 mg per tablet in Active Recovery.",
+    metric: "100–200 mg",
+    label: "tart cherry extract / tab",
     tone: "mint",
   },
   {
     number: "02",
-    title: "Elemental magnesium",
-    copy: "120 mg of elemental magnesium declared directly across malate, L-threonate and taurate.",
-    metric: "120 mg",
-    label: "elemental magnesium",
+    title: "Magnesium Bisglycinate 22%",
+    copy: "150 mg of Magnesium Bisglycinate 22% per chewable tab in Night Recovery Capsule.",
+    metric: "150 mg",
+    label: "Mg bisglycinate 22% / tab",
     tone: "lilac",
   },
   {
     number: "03",
-    title: "Potassium included",
-    copy: "Oren Hydrate pairs 200 mg of potassium alongside 500 mg of sodium and chloride.",
-    metric: "200 mg",
-    label: "potassium per sachet",
+    title: "KSM-66 + L-Theanine",
+    copy: "100 mg KSM-66 Ashwagandha Extract (5% Withanolides) paired with 50 mg L-Theanine in Night Recovery.",
+    metric: "100 + 50 mg",
+    label: "KSM-66 & L-Theanine / tab",
     tone: "peach",
   },
   {
     number: "04",
-    title: "Single-ingredient creatine",
-    copy: "Oren Creatine contains 3 g of 200-mesh creatine monohydrate per sachet with nothing else added.",
-    metric: "3 g",
-    label: "creatine per sachet",
+    title: "L-Glutamine",
+    copy: "200 mg L-Glutamine paired with 200 mg Tart Cherry Extract in every Active Recovery chewable tablet.",
+    metric: "200 mg",
+    label: "L-Glutamine / tablet",
     tone: "sky",
   },
   {
     number: "05",
-    title: "Zero sugar",
-    copy: "0 g sugar per sachet, pre-measured for 500 ml of cold water in 30 single-serve sachets.",
-    metric: "0 g",
-    label: "sugar per sachet",
+    title: "C, Zinc Citrate & P-5-P",
+    copy: "40 mg Vitamin C (Ascorbic Acid), 10 mg Zinc (as Zinc Citrate), and 2 mg Vitamin B6 (Pyridoxal-5-Phosphate) in Active Recovery.",
+    metric: "40 / 10 / 2 mg",
+    label: "Vit C, Zinc & B6 (P-5-P)",
     tone: "sand",
   },
 ] as const;
 
 export const magnesiumForms = [
   {
-    id: "malate",
-    name: "Magnesium malate",
-    short: "Malate",
-    amount: "60 mg",
-    role: "60 mg elemental magnesium",
-    copy: "Accounts for half of the 120 mg elemental magnesium in each Oren Hydrate sachet, listed by elemental weight rather than compound mass.",
+    id: "magnesium-bisglycinate",
+    name: "Magnesium Bisglycinate 22%",
+    short: "Mg Bisglycinate",
+    amount: "150 mg",
+    role: "Night Recovery · 150 mg/Tab",
+    copy: "Chelated Magnesium Bisglycinate declared at 22% standardisation in Night Recovery Capsule, paired with 100 mg Tart Cherry Extract.",
   },
   {
-    id: "threonate",
-    name: "Magnesium L-threonate",
-    short: "L-threonate",
-    amount: "40 mg",
-    role: "40 mg elemental magnesium",
-    copy: "Contributes 40 mg of elemental magnesium as part of the three-form mineral blend.",
+    id: "ksm66-theanine",
+    name: "KSM-66 Ashwagandha & L-Theanine",
+    short: "KSM-66 + Theanine",
+    amount: "100 + 50 mg",
+    role: "Night Recovery · 5% Withanolides",
+    copy: "100 mg KSM-66 Ashwagandha Extract standardised to 5% Withanolides alongside 50 mg L-Theanine per Night Recovery chewable tablet.",
   },
   {
-    id: "taurate",
-    name: "Magnesium taurate",
-    short: "Taurate",
-    amount: "20 mg",
-    role: "20 mg elemental magnesium",
-    copy: "Completes the 120 mg elemental magnesium blend without relying on magnesium oxide.",
+    id: "tart-cherry-glutamine",
+    name: "Tart Cherry & L-Glutamine",
+    short: "Active Recovery Core",
+    amount: "200 + 200 mg",
+    role: "Active Recovery · 200 mg each/Tablet",
+    copy: "200 mg Tart Cherry Extract (Generic) and 200 mg L-Glutamine per Active Recovery chewable tablet, plus 40 mg Vitamin C, 10 mg Zinc (as Zinc Citrate), and 2 mg Vitamin B6 (P-5-P).",
   },
 ] as const;
 
@@ -176,7 +176,7 @@ export const policyContent = {
     sections: [
       {
         heading: "Change of mind",
-        body: "Sealed, unused boxes from a first order can be returned within 30 days of delivery for a refund of the product price. Return carriage is paid by the customer.",
+        body: "Sealed, unused packs from a first order can be returned within 30 days of delivery for a refund of the product price. Return carriage is paid by the customer.",
       },
       {
         heading: "Damaged or incorrect items",

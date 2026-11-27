@@ -21,7 +21,7 @@ export function HeroShowcase() {
             Recovery you can check.
           </h1>
           <p className="mt-7 max-w-xl text-pretty text-base leading-7 text-white/80 md:text-lg md:leading-8">
-            What is inside in plain elemental numbers, when to use it—and when water is enough—at one fair price per serving.
+            Night Recovery Capsule and Active Recovery chewable tablets—every active ingredient declared in milligrams per tablet.
           </p>
           <div className="mt-9 flex flex-wrap gap-3">
             <ButtonLink href="/collections/all-products" variant="secondary">

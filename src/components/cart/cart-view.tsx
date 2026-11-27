@@ -12,8 +12,6 @@ export function CartView() {
   const {
     items,
     count,
-    subtotal,
-    subscriptionSavings,
     addItem,
     updateQuantity,
     removeItem,
@@ -36,7 +34,7 @@ export function CartView() {
             Start with your day.
           </h2>
           <p className="mx-auto mt-4 max-w-md text-sm leading-6 text-[var(--color-graphite)]">
-            Choose Oren Hydrate for heat or add Oren Creatine to build your routine.
+            Choose Night Recovery Capsule for evening recovery or Active Recovery for post-training sessions.
           </p>
           <Link
             href="/collections/all-products"
@@ -85,7 +83,7 @@ export function CartView() {
                     </h2>
                     <p className="mt-1 text-xs text-[var(--color-graphite)]">
                       {item.purchaseType === "once"
-                        ? "Single box"
+                        ? "Single pack"
                         : "Monthly repeat"}
                     </p>
                   </div>
@@ -182,30 +180,20 @@ export function CartView() {
 
           <div className="mt-6 space-y-3 border-b border-[var(--color-line)] pb-5 text-sm">
             <div className="flex justify-between">
-              <span className="text-[var(--color-graphite)]">Subtotal</span>
-              <span className="font-medium">{formatPrice(subtotal)}</span>
-            </div>
-            {subscriptionSavings > 0 ? (
-              <div className="flex justify-between text-xs">
-                <span className="text-[var(--color-graphite)]">Subscription savings</span>
-                <span className="font-medium text-[var(--color-signal)]">
-                  −{formatPrice(subscriptionSavings)}
-                </span>
-              </div>
-            ) : null}
-            <div className="flex justify-between">
-              <span className="text-[var(--color-graphite)]">Delivery</span>
-              <span>Calculated at checkout</span>
+              <span className="text-[var(--color-graphite)]">Availability</span>
+              <span className="font-mono text-xs font-semibold uppercase tracking-[0.08em] text-[var(--color-signal)]">
+                Coming soon
+              </span>
             </div>
             <div className="flex justify-between">
-              <span className="text-[var(--color-graphite)]">GST</span>
-              <span>Included</span>
+              <span className="text-[var(--color-graphite)]">Launch status</span>
+              <span>Pre-launch showcase</span>
             </div>
           </div>
           <div className="flex items-center justify-between pt-5">
-            <span className="text-sm">Total</span>
-            <span className="text-2xl font-semibold tracking-[-0.04em]">
-              {formatPrice(subtotal)}
+            <span className="text-sm">Ordering</span>
+            <span className="font-mono text-sm font-semibold uppercase tracking-[0.08em] text-[var(--color-signal)]">
+              Coming soon
             </span>
           </div>
           <button

@@ -12,7 +12,6 @@ export function CartDrawer() {
   const {
     items,
     count,
-    subtotal,
     subscriptionSavings,
     isOpen,
     closeCart,
@@ -132,7 +131,7 @@ export function CartDrawer() {
                         </h3>
                         <p className="mt-1 text-xs text-[var(--color-graphite)]">
                           {item.purchaseType === "once"
-                            ? "Single box"
+                            ? "Single pack"
                             : "Monthly repeat"}
                         </p>
                       </div>
@@ -233,13 +232,13 @@ export function CartDrawer() {
                 </div>
               ) : null}
               <div className="flex items-center justify-between">
-                <span className="text-sm text-[var(--color-graphite)]">Subtotal</span>
-                <span className="text-lg font-semibold text-[var(--color-ink)]">
-                  {formatPrice(subtotal)}
+                <span className="text-sm text-[var(--color-graphite)]">Status</span>
+                <span className="font-mono text-xs font-semibold uppercase tracking-[0.08em] text-[var(--color-signal)]">
+                  Coming soon
                 </span>
               </div>
               <p className="mt-1.5 text-xs text-[var(--color-graphite)]">
-                Taxes and delivery calculated at checkout.
+                Pre-launch formula showcase — ordering opens at launch.
               </p>
               <Link
                 href="/cart"
@@ -266,7 +265,7 @@ export function CartDrawer() {
               Start with your day
             </h3>
             <p className="mt-3 max-w-xs text-sm leading-6 text-[var(--color-graphite)]">
-              Choose Oren Hydrate for heat or add Oren Creatine to build your routine.
+              Choose Night Recovery Capsule for evening recovery or Active Recovery for post-training sessions.
             </p>
             <Link
               href="/collections/all-products"

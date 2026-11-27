@@ -44,7 +44,7 @@ export function SearchResultsClient() {
           name="q"
           type="search"
           defaultValue={query}
-          placeholder="Electrolytes, creatine, magnesium, heat training…"
+          placeholder="Night Recovery, Active Recovery, Tart Cherry, KSM-66, L-Glutamine…"
           className="min-w-0 flex-1 bg-transparent text-base outline-none placeholder:text-[var(--color-graphite)]"
         />
         <button type="submit" className="px-3 text-sm font-semibold">
@@ -57,7 +57,7 @@ export function SearchResultsClient() {
           <div>
             <p className="text-sm text-[var(--color-graphite)]">Popular searches</p>
             <div className="mt-4 flex flex-wrap gap-2">
-              {["Hydration", "Creatine", "Magnesium", "Heat training", "Sauna"].map(
+              {["Night Recovery", "Active Recovery", "Tart Cherry", "Magnesium Bisglycinate", "KSM-66", "L-Glutamine"].map(
                 (term) => (
                   <Link
                     key={term}
@@ -86,7 +86,7 @@ export function SearchResultsClient() {
               <div className="mt-8 rounded-[6px] border border-[var(--color-line)] bg-white p-10 text-center">
                 <h2 className="text-2xl font-semibold">No matches yet.</h2>
                 <p className="mt-3 text-sm text-[var(--color-graphite)]">
-                  Try &ldquo;electrolytes&rdquo;, &ldquo;creatine&rdquo; or &ldquo;magnesium&rdquo;.
+                  Try &ldquo;Night Recovery&rdquo;, &ldquo;Active Recovery&rdquo;, &ldquo;Tart Cherry&rdquo; or &ldquo;Magnesium&rdquo;.
                 </p>
                 <ButtonLink href="/collections/all-products" className="mt-6">
                   Browse all products

@@ -21,12 +21,17 @@ export type ProductReel = {
   duration: string;
 };
 
+export type FormulaIngredient = {
+  name: string;
+  amount: string;
+};
+
 export type Product = {
   id: string;
   handle: string;
   title: string;
   subtitle: string;
-  productType: "Electrolyte drink mix" | "Creatine" | "Bundle" | "Accessory";
+  productType: "Chewable tablets";
   price: number;
   compareAtPrice?: number;
   currency: "INR";
@@ -38,10 +43,10 @@ export type Product = {
   gallery: ProductMediaItem[];
   servingWeight: string;
   servings: number;
-  sodiumMg?: number;
-  potassiumMg?: number;
-  magnesiumMg?: number;
-  creatineG?: number;
+  keyDose: string;
+  keyStats: { label: string; value: string }[];
+  formulaTableUnit: "Mg/Tab" | "Mg/Tablet";
+  formulaBreakdown: FormulaIngredient[];
   flavour: string;
   useCases: string[];
   whenToUse: string;
@@ -65,14 +70,14 @@ export type Collection = {
 
 export const products: Product[] = [
   {
-    id: "hydrate",
-    handle: "oren-hydrate",
-    title: "Oren Hydrate",
-    subtitle: "Electrolytes for sweat-heavy days",
-    productType: "Electrolyte drink mix",
-    price: 899,
+    id: "night-recovery",
+    handle: "night-recovery",
+    title: "Night Recovery Capsule",
+    subtitle: "Chewable tablets · Evening unwind & overnight recovery",
+    productType: "Chewable tablets",
+    price: 0,
     currency: "INR",
-    available: true,
+    available: false,
     tone: "mint",
     image:
       "https://images.unsplash.com/photo-1552674605-db6ffd4facb5?auto=format&fit=crop&w=1400&q=85",
@@ -80,83 +85,84 @@ export const products: Product[] = [
       "https://images.unsplash.com/photo-1461896836934-ffe607ba8211?auto=format&fit=crop&w=1400&q=85",
     gallery: [
       {
-        id: "air-pack",
+        id: "night-pack",
         type: "image",
-        label: "Heat training",
+        label: "Evening routine",
         src: "https://images.unsplash.com/photo-1552674605-db6ffd4facb5?auto=format&fit=crop&w=1400&q=85",
-        alt: "Oren Hydrate outdoor heat training session",
+        alt: "Night Recovery Capsule chewable tablets evening routine",
       },
       {
-        id: "air-heat-run",
+        id: "night-run",
         type: "image",
-        label: "Outdoor session",
+        label: "Training block",
         src: "https://images.unsplash.com/photo-1461896836934-ffe607ba8211?auto=format&fit=crop&w=1400&q=85",
-        alt: "Athlete sprinting on outdoor track in the heat",
+        alt: "Athlete sprinting on outdoor track",
       },
       {
-        id: "air-mix",
+        id: "night-tablets",
         type: "image",
-        label: "500 ml mix",
+        label: "Chewable format",
         src: "https://images.unsplash.com/photo-1548839140-29a749e1cf4d?auto=format&fit=crop&w=1400&q=85",
-        alt: "Cold water hydration glass and electrolyte mix",
+        alt: "Night Recovery chewable tablets bedtime glass",
       },
       {
-        id: "air-reel",
+        id: "night-reel",
         type: "reel",
         label: "Training reel",
         src: "https://assets.mixkit.co/videos/preview/mixkit-man-running-on-a-track-in-slow-motion-40735-large.mp4",
         poster:
           "https://images.unsplash.com/photo-1552674605-db6ffd4facb5?auto=format&fit=crop&w=1000&q=85",
-        alt: "Oren Hydrate outdoor heat endurance reel",
+        alt: "Night Recovery outdoor training reel",
       },
     ],
-    servingWeight: "6.6 g",
+    servingWeight: "400 mg actives",
     servings: 30,
-    sodiumMg: 500,
-    potassiumMg: 200,
-    magnesiumMg: 120,
-    flavour: "Rhubarb",
-    useCases: ["Heat training", "Outdoor sessions", "Heavy sweat"],
+    keyDose: "150 mg Mg Bisglycinate · 100 mg KSM-66 · 100 mg Tart Cherry",
+    keyStats: [
+      { label: "Magnesium Bisglycinate 22%", value: "150 mg" },
+      { label: "KSM-66 Ashwagandha (5%)", value: "100 mg" },
+    ],
+    formulaTableUnit: "Mg/Tab",
+    formulaBreakdown: [
+      { name: "Tart Cherry Extract (Generic)", amount: "100 mg" },
+      { name: "Magnesium Bisglycinate 22%", amount: "150 mg" },
+      { name: "KSM-66 Ashwagandha Extract (5% Withanolides)", amount: "100 mg" },
+      { name: "L-Theanine", amount: "50 mg" },
+    ],
+    flavour: "Tart Cherry",
+    useCases: ["Evening wind-down", "Overnight recovery", "High-load training days"],
     whenToUse:
-      "Mix one sachet into 500 ml cold water for long, hot, or sweat-heavy sessions where fluid and sodium losses add up.",
+      "Take as a chewable tablet in the evening after demanding training days to support relaxation, stress recovery, and overnight rest.",
     whenNotNeeded:
-      "For a 30-minute indoor workout or a normal day at your desk, plain water and food are usually enough.",
+      "If your sleep schedule, evening nutrition, and training load are already light and well-managed, consistent sleep habits come first.",
     description:
-      "500 mg sodium, 120 mg elemental magnesium and 200 mg potassium per sachet for long, sweat-heavy sessions.",
+      "Chewable tablet with 100 mg Tart Cherry Extract, 150 mg Magnesium Bisglycinate 22%, 100 mg KSM-66 Ashwagandha (5% Withanolides), and 50 mg L-Theanine.",
     longDescription:
-      "Oren Hydrate lists every active mineral in plain elemental numbers: 500 mg sodium, 200 mg potassium and 120 mg elemental magnesium across three forms, with zero sugar.",
+      "Night Recovery Capsule is a chewable tablet formulated with four declared active ingredients per tab: 100 mg Tart Cherry Extract (Generic), 150 mg Magnesium Bisglycinate 22%, 100 mg KSM-66 Ashwagandha Extract (5% Withanolides), and 50 mg L-Theanine.",
     highlights: [
-      "500 mg sodium per sachet",
-      "120 mg elemental magnesium in three forms",
-      "200 mg potassium per sachet",
-      "30 single-serve sachets · ₹30 per sachet",
+      "100 mg Tart Cherry Extract (Generic) per tab",
+      "150 mg Magnesium Bisglycinate 22% per tab",
+      "100 mg KSM-66 Ashwagandha Extract (5% Withanolides)",
+      "50 mg L-Theanine · Chewable tablets",
     ],
     ingredients: [
-      "Sodium",
-      "Potassium",
-      "Chloride",
-      "Magnesium malate (60 mg elemental)",
-      "Magnesium L-threonate (40 mg elemental)",
-      "Magnesium taurate (20 mg elemental)",
-      "Vitamin C",
-      "Vitamin B6",
-      "Vitamin B12",
-      "Zinc",
-      "Chromium",
-      "Rhubarb flavour",
+      "Tart Cherry Extract (Generic) — 100 mg/Tab",
+      "Magnesium Bisglycinate 22% — 150 mg/Tab",
+      "KSM-66 Ashwagandha Extract (5% Withanolides) — 100 mg/Tab",
+      "L-Theanine — 50 mg/Tab",
     ],
-    collections: ["hydration-series", "all-products"],
+    collections: ["night-recovery", "all-products"],
     subscriptionEligible: true,
   },
   {
-    id: "creatine",
-    handle: "oren-creatine",
-    title: "Oren Creatine",
-    subtitle: "3 g creatine monohydrate per sachet",
-    productType: "Creatine",
-    price: 699,
+    id: "active-recovery",
+    handle: "active-recovery",
+    title: "Active Recovery",
+    subtitle: "Chewable tablets · Post-session muscle & micronutrient support",
+    productType: "Chewable tablets",
+    price: 0,
     currency: "INR",
-    available: true,
+    available: false,
     tone: "lilac",
     image:
       "https://images.unsplash.com/photo-1593095948071-474c5cc2989d?auto=format&fit=crop&w=1200&q=85",
@@ -164,57 +170,75 @@ export const products: Product[] = [
       "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1200&q=85",
     gallery: [
       {
-        id: "creatine-pack",
+        id: "active-pack",
         type: "image",
         label: "Product shot",
         src: "https://images.unsplash.com/photo-1593095948071-474c5cc2989d?auto=format&fit=crop&w=1200&q=85",
-        alt: "Oren Creatine single-serve supplement setup",
+        alt: "Active Recovery chewable tablets supplement setup",
       },
       {
-        id: "creatine-strength",
+        id: "active-strength",
         type: "image",
-        label: "Strength training",
+        label: "Post-training",
         src: "https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=1200&q=85",
         alt: "Strength athlete training with barbell",
       },
       {
-        id: "creatine-daily",
+        id: "active-daily",
         type: "image",
         label: "Daily format",
         src: "https://images.unsplash.com/photo-1579722821273-0f6c7d44362f?auto=format&fit=crop&w=1200&q=85",
-        alt: "Pre-measured daily creatine mix",
+        alt: "Active Recovery chewable tablet daily routine",
       },
       {
-        id: "creatine-reel",
+        id: "active-reel",
         type: "reel",
-        label: "Strength reel",
+        label: "Training reel",
         src: "https://assets.mixkit.co/videos/preview/mixkit-athlete-working-out-with-heavy-ropes-in-a-gym-44471-large.mp4",
         poster:
           "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1000&q=85",
-        alt: "Oren Creatine strength training reel",
+        alt: "Active Recovery training reel",
       },
     ],
-    servingWeight: "3.0 g",
+    servingWeight: "452 mg actives",
     servings: 30,
-    creatineG: 3,
-    flavour: "Unflavoured",
-    useCases: ["Strength training", "Repeated high-intensity work", "Daily routine"],
-    whenToUse:
-      "Take one 3 g sachet daily as part of a regular strength or high-intensity training routine, including rest days.",
-    whenNotNeeded:
-      "Skip it if you want an instant soreness cure or overnight muscle repair—creatine supports training output through steady daily intake.",
-    description:
-      "3 g of 200-mesh creatine monohydrate per sachet. Nothing else added: no flavour, sweetener, colour or filler.",
-    longDescription:
-      "Oren Creatine contains 3 g of micronised 200-mesh creatine monohydrate per single-serve sachet and nothing else. Built to support repeated high-intensity training with clear dosing and one honest daily price.",
-    highlights: [
-      "3 g creatine monohydrate per sachet",
-      "200 mesh micronised grade",
-      "Single ingredient, zero fillers",
-      "30 single-serve sachets · ₹23 per sachet",
+    keyDose: "200 mg Tart Cherry · 200 mg L-Glutamine · C, Zinc & B6",
+    keyStats: [
+      { label: "Tart Cherry Extract", value: "200 mg" },
+      { label: "L-Glutamine", value: "200 mg" },
     ],
-    ingredients: ["Creatine monohydrate"],
-    collections: ["creatine", "all-products"],
+    formulaTableUnit: "Mg/Tablet",
+    formulaBreakdown: [
+      { name: "Tart Cherry Extract (Generic)", amount: "200 mg" },
+      { name: "L-Glutamine", amount: "200 mg" },
+      { name: "Vitamin C (Ascorbic Acid)", amount: "40 mg" },
+      { name: "Zinc (as Zinc Citrate)", amount: "10 mg" },
+      { name: "Vitamin B6 (Pyridoxal-5-Phosphate)", amount: "2 mg" },
+    ],
+    flavour: "Tart Cherry",
+    useCases: ["Post-training recovery", "Repeated training days", "Active micronutrients"],
+    whenToUse:
+      "Chew after training sessions or during dense training weeks when you want measured Tart Cherry Extract, L-Glutamine, and recovery micronutrients without mixing powders.",
+    whenNotNeeded:
+      "On rest weeks or light-activity days where whole meals already cover your daily vitamin C, zinc, and B6 needs, you can skip it.",
+    description:
+      "Chewable tablet with 200 mg Tart Cherry Extract, 200 mg L-Glutamine, 40 mg Vitamin C, 10 mg Zinc (as Zinc Citrate), and 2 mg Vitamin B6 (P-5-P).",
+    longDescription:
+      "Active Recovery delivers five declared ingredients in a single chewable tablet: 200 mg Tart Cherry Extract (Generic), 200 mg L-Glutamine, 40 mg Vitamin C (Ascorbic Acid), 10 mg Zinc (as Zinc Citrate), and 2 mg active Vitamin B6 (Pyridoxal-5-Phosphate).",
+    highlights: [
+      "200 mg Tart Cherry Extract (Generic) per tablet",
+      "200 mg L-Glutamine per tablet",
+      "40 mg Vitamin C & 10 mg Zinc (as Zinc Citrate)",
+      "2 mg Vitamin B6 (Pyridoxal-5-Phosphate) · Chewable tablets",
+    ],
+    ingredients: [
+      "Tart Cherry Extract (Generic) — 200 mg/Tablet",
+      "L-Glutamine — 200 mg/Tablet",
+      "Vitamin C (Ascorbic Acid) — 40 mg/Tablet",
+      "Zinc (as Zinc Citrate) — 10 mg/Tablet",
+      "Vitamin B6 (Pyridoxal-5-Phosphate) — 2 mg/Tablet",
+    ],
+    collections: ["active-recovery", "all-products"],
     subscriptionEligible: true,
   },
 ];
@@ -222,9 +246,9 @@ export const products: Product[] = [
 export const productReels: ProductReel[] = [
   {
     id: "reel-01",
-    title: "Track intervals in 36°C heat",
-    tag: "Oren Hydrate · 500 mg Sodium",
-    productHandle: "oren-hydrate",
+    title: "Evening wind-down after track intervals",
+    tag: "Night Recovery · 150 mg Mg Bisglycinate",
+    productHandle: "night-recovery",
     videoUrl:
       "https://assets.mixkit.co/videos/preview/mixkit-man-running-on-a-track-in-slow-motion-40735-large.mp4",
     posterUrl:
@@ -233,9 +257,9 @@ export const productReels: ProductReel[] = [
   },
   {
     id: "reel-02",
-    title: "3 g 200-mesh daily strength block",
-    tag: "Oren Creatine · 3 g",
-    productHandle: "oren-creatine",
+    title: "Post-session Active Recovery chewable routine",
+    tag: "Active Recovery · 200 mg Tart Cherry",
+    productHandle: "active-recovery",
     videoUrl:
       "https://assets.mixkit.co/videos/preview/mixkit-athlete-working-out-with-heavy-ropes-in-a-gym-44471-large.mp4",
     posterUrl:
@@ -244,9 +268,9 @@ export const productReels: ProductReel[] = [
   },
   {
     id: "reel-03",
-    title: "One sachet into 500 ml cold water",
-    tag: "Oren Hydrate · 30 Sachets",
-    productHandle: "oren-hydrate",
+    title: "Zero-water chewable recovery format",
+    tag: "Active Recovery · 200 mg L-Glutamine",
+    productHandle: "active-recovery",
     videoUrl:
       "https://assets.mixkit.co/videos/preview/mixkit-runner-drinking-water-after-exercising-40745-large.mp4",
     posterUrl:
@@ -255,9 +279,9 @@ export const productReels: ProductReel[] = [
   },
   {
     id: "reel-04",
-    title: "Post-heat electrolyte & magnesium reload",
-    tag: "Oren Hydrate · 120 mg Magnesium",
-    productHandle: "oren-hydrate",
+    title: "Overnight KSM-66 & L-Theanine recovery block",
+    tag: "Night Recovery · 100 mg KSM-66",
+    productHandle: "night-recovery",
     videoUrl:
       "https://assets.mixkit.co/videos/preview/mixkit-woman-running-on-an-asphalt-road-32807-large.mp4",
     posterUrl:
@@ -268,29 +292,30 @@ export const productReels: ProductReel[] = [
 
 export const collections: Collection[] = [
   {
-    handle: "hydration-series",
-    title: "Hydration",
-    eyebrow: "Electrolytes",
+    handle: "night-recovery",
+    title: "Night Recovery",
+    eyebrow: "Chewable tablets",
     description:
-      "Zero sugar electrolytes with 500 mg sodium for heat, outdoor sessions and heavy sweat.",
-    products: ["oren-hydrate"],
+      "100 mg Tart Cherry Extract, 150 mg Magnesium Bisglycinate 22%, 100 mg KSM-66 Ashwagandha (5% Withanolides), and 50 mg L-Theanine per chewable tablet.",
+    products: ["night-recovery"],
     tone: "mint",
   },
   {
     handle: "all-products",
     title: "All products",
     eyebrow: "The complete range",
-    description: "Oren Hydrate and Oren Creatine — clear doses, honest per-serving prices.",
-    products: ["oren-hydrate", "oren-creatine"],
+    description:
+      "Night Recovery Capsule and Active Recovery chewable tablets — exact milligram breakdowns per tablet.",
+    products: ["night-recovery", "active-recovery"],
     tone: "sand",
   },
   {
-    handle: "creatine",
-    title: "Creatine",
-    eyebrow: "One simple ingredient",
+    handle: "active-recovery",
+    title: "Active Recovery",
+    eyebrow: "Chewable tablets",
     description:
-      "3 g of creatine monohydrate per sachet, with no flavour, sweetener or filler.",
-    products: ["oren-creatine"],
+      "200 mg Tart Cherry Extract, 200 mg L-Glutamine, 40 mg Vitamin C, 10 mg Zinc (as Zinc Citrate), and 2 mg Vitamin B6 (P-5-P) per chewable tablet.",
+    products: ["active-recovery"],
     tone: "lilac",
   },
 ];
@@ -335,10 +360,7 @@ export function getPerServingPrice(
   return Math.round(unitPrice / Math.max(1, servings));
 }
 
-export function formatPrice(value: number) {
-  return new Intl.NumberFormat("en-IN", {
-    style: "currency",
-    currency: "INR",
-    maximumFractionDigits: 0,
-  }).format(value);
+export function formatPrice(_value?: number) {
+  void _value;
+  return "Coming soon";
 }

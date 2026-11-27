@@ -25,12 +25,12 @@ export function MagnesiumTabs() {
     <section id="magnesium" className="bg-[var(--color-mist)] py-20 md:py-28">
       <Container>
         <SectionHeading
-          title="One mineral. Three forms."
-          copy="120 mg of elemental magnesium, split across a measured three-form blend."
+          title="Inside the chewable tablets."
+          copy="Standardised extracts, chelated minerals, and active coenzymes declared in milligrams per tablet."
         />
         <div className="mt-12 grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
           <div>
-            <div role="tablist" aria-label="Magnesium forms" className="flex flex-col border-t border-[var(--color-line)]">
+            <div role="tablist" aria-label="Active ingredients" className="flex flex-col border-t border-[var(--color-line)]">
               {magnesiumForms.map((item, index) => (
                 <button
                   key={item.id}
@@ -64,7 +64,7 @@ export function MagnesiumTabs() {
             <div className="absolute -right-16 -top-16 h-64 w-64 rounded-full border border-white/10" />
             <div className="absolute -bottom-24 -left-20 h-72 w-72 rounded-full border border-white/10" />
             <div className="relative">
-              <p className="font-mono text-[10px] tracking-[0.16em] text-white/65">Elemental magnesium</p>
+              <p className="font-mono text-[10px] tracking-[0.16em] text-white/65">Declared per tablet</p>
               <p className="mt-6 text-7xl font-semibold tracking-[-0.07em] md:text-8xl">{form.amount}</p>
               <p className="mt-4 text-lg font-medium text-white">{form.role}</p>
             </div>

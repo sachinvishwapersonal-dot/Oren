@@ -12,8 +12,6 @@ import { JsonLd } from "@/components/ui/json-ld";
 import { Badge, ButtonLink, Container, SectionHeading } from "@/components/ui/primitives";
 import { ArrowIcon, CheckIcon, PlayIcon } from "@/components/ui/icons";
 import {
-  formatPrice,
-  getPerServingPrice,
   getProduct,
   products,
 } from "@/data/products";
@@ -59,7 +57,6 @@ export default async function ProductPage({ params }: PageProps) {
     .slice(0, 4);
   const fallbackRelated = products.filter((item) => item.id !== product.id).slice(0, 4);
   const relatedProducts = related.length ? related : fallbackRelated;
-  const perServing = getPerServingPrice(product.price, product.servings);
 
   const productJsonLd = {
     "@context": "https://schema.org",
@@ -70,24 +67,6 @@ export default async function ProductPage({ params }: PageProps) {
     image: [`${siteConfig.url}/og-image.svg`],
     sku: product.id,
     brand: { "@type": "Brand", name: siteConfig.name },
-    offers: {
-      "@type": "Offer",
-      url: `${siteConfig.url}/products/${product.handle}`,
-      price: product.price,
-      priceCurrency: product.currency,
-      availability: product.available
-        ? "https://schema.org/InStock"
-        : "https://schema.org/OutOfStock",
-      itemCondition: "https://schema.org/NewCondition",
-      seller: { "@id": `${siteConfig.url}/#organization` },
-      hasMerchantReturnPolicy: {
-        "@type": "MerchantReturnPolicy",
-        applicableCountry: siteConfig.countryCode,
-        returnPolicyCategory: "https://schema.org/MerchantReturnFiniteReturnWindow",
-        merchantReturnDays: 30,
-        returnMethod: "https://schema.org/ReturnByMail",
-      },
-    },
   };
 
   const breadcrumbJsonLd = {
@@ -138,15 +117,12 @@ export default async function ProductPage({ params }: PageProps) {
               <p className="mt-4 text-lg text-[var(--color-graphite)]">
                 {product.subtitle}
               </p>
-              <div className="mt-6 flex flex-wrap items-baseline gap-3">
-                <p className="text-2xl font-semibold">{formatPrice(product.price)}</p>
-                {product.compareAtPrice ? (
-                  <p className="text-base text-[var(--color-graphite)] line-through">
-                    {formatPrice(product.compareAtPrice)}
-                  </p>
-                ) : null}
+              <div className="mt-6 flex flex-wrap items-center gap-3">
+                <span className="inline-flex items-center rounded-[3px] bg-[var(--color-signal)] px-3 py-1.5 font-mono text-xs font-bold uppercase tracking-[0.1em] text-white">
+                  Coming soon
+                </span>
                 <span className="font-mono text-xs text-[var(--color-graphite)]">
-                  ({formatPrice(perServing)} / sachet · one honest price)
+                  {product.servings} chewable tablets
                 </span>
               </div>
               <p className="mt-6 max-w-xl text-sm leading-6 text-[var(--color-graphite)] md:text-base md:leading-7">
@@ -201,36 +177,22 @@ export default async function ProductPage({ params }: PageProps) {
               </div>
             </div>
             <div className="grid grid-cols-2 gap-3">
-              {(product.sodiumMg
-                ? [
-                    ["Sodium", `${product.sodiumMg} mg`],
-                    ["Potassium", `${product.potassiumMg} mg`],
-                  ]
-                : product.creatineG
-                  ? [
-                      ["Creatine", `${product.creatineG} g`],
-                      ["Mesh grade", "200 mesh"],
-                    ]
-                  : [
-                      ["Capacity", product.title],
-                      ["Format", "Daily carry"],
-                    ]
-              ).map(([label, value]) => (
+              {product.keyStats.map((stat) => (
                 <div
-                  key={label}
+                  key={stat.label}
                   className="rounded-[3px] border border-white/15 bg-white/5 p-6"
                 >
                   <p className="font-mono text-[10px] tracking-[0.12em] text-white/60">
-                    {label}
+                    {stat.label}
                   </p>
                   <p className="mt-4 text-3xl font-semibold tracking-[-0.05em]">
-                    {value}
+                    {stat.value}
                   </p>
                 </div>
               ))}
               <div className="rounded-[3px] bg-[var(--color-signal)] p-6 text-white">
                 <p className="font-mono text-[10px] tracking-[0.12em] text-white">
-                  Sachets per box
+                  Tablets per pack
                 </p>
                 <p className="mt-4 text-3xl font-semibold tracking-[-0.05em]">
                   {product.servings}
@@ -238,10 +200,10 @@ export default async function ProductPage({ params }: PageProps) {
               </div>
               <div className="rounded-[3px] border border-white/15 bg-white/5 p-6">
                 <p className="font-mono text-[10px] tracking-[0.12em] text-white/60">
-                  Flavour
+                  Format
                 </p>
                 <p className="mt-4 text-xl font-semibold tracking-[-0.03em]">
-                  {product.flavour}
+                  {product.productType}
                 </p>
               </div>
             </div>
@@ -254,50 +216,66 @@ export default async function ProductPage({ params }: PageProps) {
           <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:gap-20">
             <SectionHeading
               title="What is inside."
-              copy="Exact active ingredients, elemental doses, serving weight and pre-launch regulatory scope."
+              copy={`Exact active ingredients declared in ${product.formulaTableUnit} for ${product.title} (${product.productType}).`}
             />
-            <div className="border-t border-[var(--color-line)]">
-              <div className="grid grid-cols-2 gap-4 border-b border-[var(--color-line)] py-5 text-sm">
-                <span className="text-[var(--color-graphite)]">Servings per box</span>
-                <span className="text-right font-medium">
-                  {product.servings} × {product.servingWeight} sachets
-                </span>
+            <div>
+              <div className="overflow-hidden rounded-[6px] border border-[var(--color-line)] bg-white">
+                <table className="w-full border-collapse text-left text-sm">
+                  <thead>
+                    <tr className="border-b border-[var(--color-line)] bg-[var(--color-mist)]">
+                      <th className="p-4 font-semibold">Ingredients</th>
+                      <th className="p-4 text-right font-mono text-xs font-semibold">
+                        {product.formulaTableUnit}
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {product.formulaBreakdown.map((row) => (
+                      <tr
+                        key={row.name}
+                        className="border-b border-[var(--color-line)] last:border-0"
+                      >
+                        <td className="p-4 font-medium">{row.name}</td>
+                        <td className="p-4 text-right font-mono text-sm">
+                          {row.amount}
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
               </div>
-              <div className="grid grid-cols-2 gap-4 border-b border-[var(--color-line)] py-5 text-sm">
-                <span className="text-[var(--color-graphite)]">Price per sachet</span>
-                <span className="text-right font-medium">
-                  {formatPrice(perServing)} (same price every day)
-                </span>
-              </div>
-              <div className="grid grid-cols-2 gap-4 border-b border-[var(--color-line)] py-5 text-sm">
-                <span className="text-[var(--color-graphite)]">Flavour</span>
-                <span className="text-right font-medium">{product.flavour}</span>
-              </div>
-              <div className="grid grid-cols-2 gap-4 border-b border-[var(--color-line)] py-5 text-sm">
-                <span className="text-[var(--color-graphite)]">Product type</span>
-                <span className="text-right font-medium">{product.productType}</span>
-              </div>
-              <div className="border-b border-[var(--color-line)] py-6">
-                <p className="text-sm font-semibold">Ingredient structure</p>
-                <p className="mt-3 text-sm leading-6 text-[var(--color-graphite)]">
-                  {product.ingredients.join(", ")}.
-                </p>
-              </div>
-              <div className="py-5">
-                <p className="text-xs leading-5 text-[var(--color-graphite)]">
-                  Pre-launch specification: final FSSAI category, RDA percentages, allergens, licence details and HSN tax rate will appear on the approved label at commercial release.
-                </p>
+
+              <div className="mt-6 border-t border-[var(--color-line)]">
+                <div className="grid grid-cols-2 gap-4 border-b border-[var(--color-line)] py-4 text-sm">
+                  <span className="text-[var(--color-graphite)]">Format</span>
+                  <span className="text-right font-medium">{product.productType}</span>
+                </div>
+                <div className="grid grid-cols-2 gap-4 border-b border-[var(--color-line)] py-4 text-sm">
+                  <span className="text-[var(--color-graphite)]">Tablets per pack</span>
+                  <span className="text-right font-medium">
+                    {product.servings} chewable tablets ({product.servingWeight} / tablet)
+                  </span>
+                </div>
+                <div className="grid grid-cols-2 gap-4 border-b border-[var(--color-line)] py-4 text-sm">
+                  <span className="text-[var(--color-graphite)]">Availability</span>
+                  <span className="text-right font-medium">Coming soon</span>
+                </div>
+                <div className="py-5">
+                  <p className="text-xs leading-5 text-[var(--color-graphite)]">
+                    Pre-launch specification: final FSSAI category, RDA percentages, excipients, allergens, licence details and HSN tax rate will appear on the approved label at commercial release.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
         </Container>
       </section>
 
-      {product.productType === "Electrolyte drink mix" ? <MagnesiumTabs /> : null}
+      <MagnesiumTabs />
 
       <ReelsSection
         title="In the daily routine."
-        copy="Training reels and single-serve preparation."
+        copy="Post-session active recovery and evening wind-down."
       />
 
       <section className="bg-[var(--color-mist)] py-20 md:py-28">
@@ -324,7 +302,7 @@ export default async function ProductPage({ params }: PageProps) {
                   See how Oren formats each label.
                 </h2>
                 <p className="mt-4 max-w-lg text-sm leading-6 text-white/70">
-                  Elemental doses, clear use occasions, and honest everyday pricing.
+                  Declared mg per tablet, standardised extracts, and clear usage guidance.
                 </p>
               </div>
               <span className="mt-8 inline-flex items-center gap-3 text-sm font-semibold text-white">
@@ -348,9 +326,9 @@ export default async function ProductPage({ params }: PageProps) {
               <thead>
                 <tr className="border-b border-[var(--color-line)]">
                   <th className="p-5 font-semibold">Product</th>
-                  <th className="p-5 font-semibold">Type</th>
-                  <th className="p-5 font-semibold">Key dose</th>
-                  <th className="p-5 font-semibold">Per sachet</th>
+                  <th className="p-5 font-semibold">Format</th>
+                  <th className="p-5 font-semibold">Key actives / tablet</th>
+                  <th className="p-5 font-semibold">Status</th>
                   <th className="p-5 font-semibold">Best for</th>
                 </tr>
               </thead>
@@ -364,13 +342,9 @@ export default async function ProductPage({ params }: PageProps) {
                   >
                     <td className="p-5 font-medium">{item.title}</td>
                     <td className="p-5">{item.productType}</td>
-                    <td className="p-5">
-                      {item.creatineG
-                        ? `${item.creatineG} g creatine`
-                        : `${item.sodiumMg} mg sodium`}
-                    </td>
-                    <td className="p-5 font-mono text-xs">
-                      {formatPrice(getPerServingPrice(item.price, item.servings))}
+                    <td className="p-5">{item.keyDose}</td>
+                    <td className="p-5 font-mono text-xs font-semibold text-[var(--color-signal)]">
+                      Coming soon
                     </td>
                     <td className="p-5 text-[var(--color-graphite)]">
                       {item.useCases[0]}

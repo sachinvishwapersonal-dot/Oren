@@ -1,16 +1,11 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useState } from "react";
-import {
-  formatPrice,
-  getPerServingPrice,
-  type Product,
-} from "@/data/products";
-import { useCart } from "@/components/cart/cart-provider";
+import type { Product } from "@/data/products";
 import { Container } from "@/components/ui/primitives";
 
 export function StickyProductBar({ product }: { product: Product }) {
-  const { addItem } = useCart();
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
@@ -24,13 +19,11 @@ export function StickyProductBar({ product }: { product: Product }) {
 
   if (!visible) return null;
 
-  const perServing = getPerServingPrice(product.price, product.servings);
-
   return (
     <div
       className="fixed inset-x-0 bottom-0 z-[70] border-t border-[var(--color-line)] bg-white/95 py-3 shadow-[0_-8px_24px_rgba(15,30,32,0.08)] backdrop-blur-md"
       role="region"
-      aria-label={`Quick purchase bar for ${product.title}`}
+      aria-label={`Launch status bar for ${product.title}`}
     >
       <Container>
         <div className="flex items-center justify-between gap-4">
@@ -40,7 +33,7 @@ export function StickyProductBar({ product }: { product: Product }) {
                 {product.title}
               </p>
               <span className="hidden rounded-full bg-[var(--color-mist)] px-2.5 py-0.5 font-mono text-[10px] text-[var(--color-graphite)] sm:inline-block">
-                {product.servings} sachets · {formatPrice(perServing)}/sachet
+                {product.servings} chewable tablets · Coming soon
               </span>
             </div>
             <p className="truncate text-xs text-[var(--color-graphite)]">
@@ -48,19 +41,15 @@ export function StickyProductBar({ product }: { product: Product }) {
             </p>
           </div>
           <div className="flex shrink-0 items-center gap-3">
-            <div className="hidden text-right sm:block">
-              <p className="text-sm font-semibold text-[var(--color-ink)]">
-                {formatPrice(product.price)}
-              </p>
-              <p className="text-[10px] text-[var(--color-graphite)]">incl. GST</p>
-            </div>
-            <button
-              type="button"
-              onClick={() => addItem(product.id, 1, "once")}
+            <span className="hidden font-mono text-xs font-semibold uppercase tracking-[0.08em] text-[var(--color-signal)] sm:inline">
+              Coming soon
+            </span>
+            <Link
+              href="/pages/contact"
               className="button-shape flex h-11 items-center justify-center bg-[var(--color-signal)] px-5 text-xs font-bold uppercase tracking-[0.1em] text-white transition-colors hover:bg-[var(--color-ink)]"
             >
-              Add to cart · {formatPrice(product.price)}
-            </button>
+              Notify me
+            </Link>
           </div>
         </div>
       </Container>
